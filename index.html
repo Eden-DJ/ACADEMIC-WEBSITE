@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden J. | BYU Mathematics</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#002E5D">
+    <style>
+        :root {
+            --byu-navy: #002E5D;
+            --white: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+        /* Header Section */
+        .header {
+            padding: 40px 20px;
+            background: var(--white);
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            /* Squircle effect */
+            border-radius: 40px; 
+            margin-bottom: 20px;
+        }
+        h1 { margin: 10px 0; font-size: 1.8rem; }
+        .email { color: var(--byu-navy); text-decoration: none; font-weight: 500; }
+
+        /* Bio Section */
+        .bio-section {
+            background-color: var(--byu-navy);
+            color: var(--white);
+            padding: 50px 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+
+        /* Navigation */
+        nav {
+            background: #eee;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 15px;
+        }
+        nav button {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--byu-navy);
+        }
+
+        /* Page Content Control */
+        .page { display: none; padding: 40px 20px; min-height: 300px; }
+        .active { display: block; }
+    </style>
+</head>
+<body>
+
+<section class="header">
+    <img src="mephoto.png" alt="Eden" class="profile-img">
+    <h1>Eden J.</h1>
+    <a href="mailto:edendj@math.byu.edu" class="email">edendj@math.byu.edu</a>
+</section>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('teaching')">Teaching</button>
+    <button onclick="showPage('research')">Research</button>
+    <button onclick="showPage('outreach')">Outreach</button>
+</nav>
+
+<div id="home" class="page active">
+    <section class="bio-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a PhD student in Mathematics at Brigham Young University. Originally from Australia, I now focus my research and academic efforts here in Provo, Utah.</p>
+        </div>
+    </section>
+</div>
+
+<div id="teaching" class="page">
+    <div class="container">
+        <h2>Teaching</h2>
+        <p>Information about courses taught and teaching materials will be listed here.</p>
+    </div>
+</div>
+
+<div id="research" class="page">
+    <div class="container">
+        <h2>Research</h2>
+        <p>Publications and ongoing research projects.</p>
+    </div>
+</div>
+
+<div id="outreach" class="page">
+    <div class="container">
+        <h2>Outreach</h2>
+        <p>Extra-curricular academic activities and community engagement.</p>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+</script>
+
+</body>
+</html>
