@@ -7,65 +7,84 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#002E5D">
     <style>
-        :root {
-            --byu-navy: #002E5D;
-            --white: #ffffff;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            text-align: center;
-            color: #333;
-            background-color: #f4f4f9;
-        }
-        /* Header Section */
-        .header {
-            padding: 40px 20px;
-            background: var(--white);
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            /* Squircle effect */
-            border-radius: 40px; 
-            margin-bottom: 20px;
-        }
-        h1 { margin: 10px 0; font-size: 1.8rem; }
-        .email { color: var(--byu-navy); text-decoration: none; font-weight: 500; }
-
-        /* Bio Section */
-        .bio-section {
-            background-color: var(--byu-navy);
-            color: var(--white);
-            padding: 50px 20px;
-            line-height: 1.6;
-        }
-        .container { max-width: 800px; margin: 0 auto; }
-
-        /* Navigation */
-        nav {
-            background: #eee;
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            gap: 15px;
-        }
-        nav button {
-            background: none;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--byu-navy);
-        }
-
-        /* Page Content Control */
-        .page { display: none; padding: 40px 20px; min-height: 300px; }
-        .active { display: block; }
-    </style>
+    :root {
+        --byu-navy: #002E5D;
+        --outback-gold: #FFB81C; /* Australian Gold */
+        --coastal-teal: #008080;
+        --white: #ffffff;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        text-align: center;
+        color: #333;
+        background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+    }
+    .header {
+        padding: 60px 20px;
+        background: var(--white);
+        border-bottom: 4px solid var(--outback-gold); /* Hint of Australia */
+    }
+    .profile-img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 40px; 
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .profile-img:hover {
+        transform: rotate(-3deg) scale(1.05); /* Interactive tilt */
+    }
+    h1 { 
+        margin: 15px 0 5px 0; 
+        font-size: 2.2rem; 
+        letter-spacing: -0.5px;
+    }
+    .email { 
+        color: var(--coastal-teal); 
+        text-decoration: none; 
+        font-weight: 500;
+    }
+    nav {
+        background: var(--byu-navy);
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        z-index: 1000;
+    }
+    nav button {
+        background: none;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--white);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    nav button:hover {
+        color: var(--outback-gold);
+    }
+    .bio-section {
+        background-color: var(--byu-navy);
+        color: var(--white);
+        padding: 60px 20px;
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); /* Angled modern cut */
+    }
+    .container { max-width: 750px; margin: 0 auto; text-align: left; }
+    h2 { color: var(--outback-gold); }
+    .page { display: none; padding: 40px 20px; }
+    .active { display: block; animation: fadeIn 0.5s; }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 </head>
 <body>
 
