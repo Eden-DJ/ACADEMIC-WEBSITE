@@ -21,22 +21,22 @@
         background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
     }
     .header {
-        padding: 60px 20px;
+        padding: 40px 20px;
         background: var(--white);
-        border-bottom: 4px solid var(--outback-gold); /* Hint of Australia */
+        border-bottom: 4px solid var(--outback-gold);
     }
     /* Profile Photo Styling */
-.profile-photo {
-    width: 800px;        /* Change this value to adjust the size (e.g., 80px, 100px, or 120px) */
-    height: 800px;       /* Keep height equal to width for a perfect circle */
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--white);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    margin-bottom: 15px;
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--white);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 15px;
     }
-    .profile-img:hover {
-        transform: rotate(-3deg) scale(1.05); /* Interactive tilt */
+    .profile-photo:hover {
+        transform: rotate(-3deg) scale(1.05);
     }
     h1 { 
         margin: 15px 0 5px 0; 
@@ -75,9 +75,8 @@
         background-color: var(--byu-navy);
         color: var(--white);
         padding: 60px 20px;
-        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); /* Angled modern cut */
     }
-    .container { max-width: 750px; margin: 0 auto; text-align: left; }
+    .container { max-width: 800px; margin: 0 auto; text-align: left; }
     h2 { color: var(--outback-gold); }
     .page { display: none; padding: 40px 20px; }
     .active { display: block; animation: fadeIn 0.5s; }
@@ -86,184 +85,153 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-        /* Embedded PDF Viewer Styling */
-.pdf-viewer {
-    width: 100%;
-    height: 400px; /* Adjust height as desired */
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 10px;
-}
 
-        /* Resource Cards Styling */
-    .resource-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-    .resource-card {
+    /* Embedded PDF Viewer Styling */
+    .pdf-container {
+        margin-bottom: 40px;
         background: var(--white);
-        border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         border-top: 4px solid var(--byu-navy);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
     }
-    .resource-card h4 {
+    .pdf-container h4 {
         margin-top: 0;
         color: var(--byu-navy);
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
-    .resource-card p {
-        font-size: 0.9rem;
+    .pdf-container p {
         color: #555;
-        line-height: 1.4;
+        font-size: 0.95rem;
     }
-    .download-btn {
-        display: inline-block;
+    .pdf-viewer {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
         margin-top: 15px;
-        padding: 10px 16px;
-        background-color: var(--byu-navy);
-        color: var(--white);
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-        font-size: 0.85rem;
-        text-align: center;
-        transition: background-color 0.2s ease;
     }
-    .download-btn:hover {
-        background-color: var(--outback-gold);
+    .download-link {
+        display: inline-block;
+        margin-top: 10px;
         color: var(--byu-navy);
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .download-link:hover {
+        color: var(--outback-gold);
+        text-decoration: underline;
     }
 
     /* Image Carousel Styling */
-.carousel-container {
-    position: relative;
-    max-width: 700px;
-    margin: 20px auto;
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    border-top: 4px solid var(--byu-navy);
-}
-
-.carousel-slide {
-    display: none;
-    text-align: center;
-    padding: 20px;
-}
-
-.carousel-slide.active {
-    display: block;
-}
-
-.carousel-slide img {
-    max-width: 100%;
-    max-height: 450px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: contain;
-}
-
-.carousel-caption {
-    margin-top: 15px;
-    text-align: left;
-    padding: 0 10px;
-}
-
-.carousel-caption h4 {
-    margin: 0 0 5px 0;
-    color: var(--byu-navy);
-}
-
-.carousel-caption p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #555;
-}
-
-/* Prev/Next Buttons */
-.carousel-btn {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 46, 93, 0.7);
-    color: white;
-    border: none;
-    padding: 12px 16px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    border-radius: 50%;
-    user-select: none;
-    transition: background-color 0.2s;
-}
-
-.carousel-btn:hover {
-    background-color: var(--outback-gold);
-    color: var(--byu-navy);
-}
-
-.carousel-btn.prev { left: 15px; }
-.carousel-btn.next { right: 15px; }
-
-/* Dot Indicators */
-.carousel-dots {
-    text-align: center;
-    padding: 15px 0;
-    background: #f9f9f9;
-}
-
-.dot {
-    cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 4px;
-    background-color: #ccc;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-
-.dot.active, .dot:hover {
-    background-color: var(--byu-navy);
-}
-</style>
+    .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 20px 0 40px 0;
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        overflow: hidden;
+        border-top: 4px solid var(--byu-navy);
+        padding: 20px;
+    }
+    .carousel-slide {
+        display: none;
+        text-align: center;
+    }
+    .carousel-slide.active {
+        display: block;
+    }
+    .carousel-slide img {
+        max-width: 100%;
+        max-height: 450px;
+        height: auto;
+        border-radius: 8px;
+        object-fit: contain;
+    }
+    .carousel-caption {
+        margin-top: 15px;
+        text-align: left;
+        padding: 0 10px;
+    }
+    .carousel-caption h4 {
+        margin: 0 0 5px 0;
+        color: var(--byu-navy);
+    }
+    .carousel-caption p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #555;
+    }
+    .carousel-btn {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 46, 93, 0.8);
+        color: white;
+        border: none;
+        padding: 10px 14px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        border-radius: 50%;
+        user-select: none;
+        transition: background-color 0.2s;
+    }
+    .carousel-btn:hover {
+        background-color: var(--outback-gold);
+        color: var(--byu-navy);
+    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+    .carousel-dots {
+        text-align: center;
+        padding-top: 15px;
+    }
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 4px;
+        background-color: #ccc;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+    .dot.active, .dot:hover {
+        background-color: var(--byu-navy);
+    }
+    </style>
 </head>
 <body>
 
 <section class="header">
-    <img src="Profile_Photo.jpeg" alt="Profile Photo" class="profile-photo">
-    <h1>Eden Danielsen-Jensen </h1>
+    <h1>Eden Danielsen-Jensen</h1>
     <a href="mailto:edendj@math.byu.edu" class="email">edendj@math.byu.edu</a>
 </section>
 
 <nav>
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('teaching')">Teaching</button>
-    <button onclick="showPage('resources')">Resources</button>
     <button onclick="showPage('research')">Research</button>
     <button onclick="showPage('outreach')">Outreach</button>
 </nav>
 
 <div id="home" class="page active">
     <section class="bio-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a PhD student in Mathematics at Brigham Young University. Originally from Australia, I now focus my research and academic efforts here in Provo, Utah.</p>
+        <div class="container" style="text-align: center;">
+            <img src="Profile_Photo.jpeg" alt="Profile Photo" class="profile-photo">
+            <h2 style="color: var(--outback-gold); text-align: center;">About Me</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.6;">I am a PhD student in Mathematics at Brigham Young University. Originally from Australia, I now focus my research and academic efforts here in Provo, Utah.</p>
         </div>
     </section>
 </div>
 
 <div id="teaching" class="page">
     <div class="container">
-        <h2>Teaching</h2>
+        <h2>Teaching Portfolio</h2>
         
+        <!-- Teaching Experience -->
         <div style="text-align: left; margin-bottom: 40px;">
             <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">Brigham Young University</h3>
             <p><strong>Instructor of Record</strong></p>
@@ -272,148 +240,125 @@
                 <li><strong>MATH 112</strong>: Calculus I</li>
                 <li><strong>MATH 109</strong>: Precalculus Mathematics</li>
                 <li><strong>MATH 116</strong>: Essentials of Calculus</li>
-                
             </ul>
         </div>
 
-        <div style="text-align: left;">
+        <div style="text-align: left; margin-bottom: 50px;">
             <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">University of the Sunshine Coast</h3>
             <p><strong>Tutorial Instructor</strong></p>
             <ul style="line-height: 1.8;">
                 <li><strong>MATH 104</strong>: Introductory Calculus</li>
                 <li><strong>MATH 103</strong>: Introduction to Applied Mathematics</li>
                 <li><strong>SCI 110</strong>: Science Research Methods</li>
-                
-                
             </ul>
         </div>
-    </div>
-</div>
 
-
-<div id="resources" class="page">
-    <div class="container">
-        <h2>Teaching Portfolio</h2>
-        <p>Downloadable lecture templates, visual study roadmaps, and classroom community activities.</p>
-
+        <!-- Teaching Resources Section -->
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">
             Lecture Templates & Course Materials
         </h3>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <h4>LaTeX Lecture Notes Template</h4>
-                    <p>Modular tcolorbox template with roadmaps, think-pair-share prompts, definitions, and strategy boxes.</p>
-                </div>
-                <a href="Lecture_Notes_Colored_Box_Template.tex" download class="download-btn">Download .tex Template</a>
-            </div>
 
-           <div class="resource-card">
-    <div>
-        <h4>Math 109: Sinusoidal Graphs</h4>
-        <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
-    </div>
-    <!-- Embedded PDF Viewer -->
-    <iframe src="Math109_Section_6.1.pdf" class="pdf-viewer"></iframe>
-</div>
-            <a href="Math109_Section_6.1.pdf" download class="download-btn">Download PDF</a>
-            </div>
+        <!-- LaTeX Template -->
+        <div class="pdf-container">
+            <h4>LaTeX Lecture Notes Template</h4>
+            <p>Modular tcolorbox template with roadmaps, think-pair-share prompts, definitions, and strategy boxes.</p>
+            <a href="Lecture_Notes_Colored_Box_Template.tex" download class="download-link">📥 Download .tex Template File</a>
+        </div>
 
-            <div class="resource-card">
-        
-                <!-- Embedded PDF Viewer -->
-    <iframe src="Math112_Section_2.7.pdf" class="pdf-viewer"></iframe>
-            </div>
-        <a href="Math112_Section_2.7.pdf" download class="download-btn">Download PDF</a>
-            </div>
+        <!-- Math 109 -->
+        <div class="pdf-container">
+            <h4>Math 109: Sinusoidal Graphs</h4>
+            <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
+            <iframe src="Math109_Section_6.1.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Math109_Section_6.1.pdf" download class="download-link">📥 Download PDF</a>
+        </div>
 
-            <div class="resource-card">
-                <div>
-                  
-                  <!-- Embedded PDF Viewer -->
-    <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-viewer"></iframe>
-            </div>
-                <a href="Math213_Final_Exam_Review.pdf" download class="download-btn">Download PDF</a>
-            </div>
+        <!-- Math 112 -->
+        <div class="pdf-container">
+            <h4>Math 112: Derivatives & Rates of Change</h4>
+            <p>Section 2.7 lecture notes on secant/tangent lines and limit definitions.</p>
+            <iframe src="Math112_Section_2.7.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Math112_Section_2.7.pdf" download class="download-link">📥 Download PDF</a>
+        </div>
 
-            <div class="resource-card">
-                <div>
-                  <!-- Embedded PDF Viewer -->
-    <iframe src="Math213_Section_5.2.pdf" class="pdf-viewer"></iframe>
-            </div>
-    <a href="Math213_Section_5.2.pdf" download class="download-btn">Download PDF</a>
-            </div>
+        <!-- Math 213 Final Review -->
+        <div class="pdf-container">
+            <h4>Math 213: Final Exam Review Guide</h4>
+            <p>Comprehensive review guide covering linear systems through orthogonal diagonalization and SVD.</p>
+            <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Math213_Final_Exam_Review.pdf" download class="download-link">📥 Download PDF</a>
+        </div>
 
-            <div class="resource-card">
-                <div>
-                  <!-- Embedded PDF Viewer -->
-    <iframe src="Math213_Section_5.4.pdf" class="pdf-viewer"></iframe>
-                <a href="Math213_Section_5.4.pdf" download class="download-btn">Download PDF</a>
-            </div>
+        <!-- Math 213 Sec 5.2 -->
+        <div class="pdf-container">
+            <h4>Math 213: Orthogonal Complements</h4>
+            <p>Section 5.2 notes on orthogonal decomposition, fundamental subspaces, and projections.</p>
+            <iframe src="Math213_Section_5.2.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Math213_Section_5.2.pdf" download class="download-link">📥 Download PDF</a>
+        </div>
+
+        <!-- Math 213 Sec 5.4 -->
+        <div class="pdf-container">
+            <h4>Math 213: Orthogonal Diagonalization</h4>
+            <p>Section 5.4 guide on the Spectral Theorem, repeated eigenvalues, and Gram-Schmidt process.</p>
+            <iframe src="Math213_Section_5.4.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Math213_Section_5.4.pdf" download class="download-link">📥 Download PDF</a>
         </div>
 
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Visual Roadmaps & Guides
         </h3>
 
+        <!-- Carousel Container -->
+        <div class="carousel-container" id="roadmapCarousel">
+            <div class="carousel-slide active">
+                <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
+                <div class="carousel-caption">
+                    <h4>Eigenvalues & Eigenvectors Roadmap</h4>
+                    <p>Step-by-step visual flowchart for finding eigenvalues and eigenvectors.</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="Solving_System_Roadmap.png" alt="Solving Systems Roadmap">
+                <div class="carousel-caption">
+                    <h4>Solving Systems Roadmap</h4>
+                    <p>Visual decision tree for analyzing linear system solutions using RREF, rank, and nullity.</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="SVD_Roadmap.png" alt="Singular Value Decomposition Roadmap">
+                <div class="carousel-caption">
+                    <h4>Singular Value Decomposition Roadmap</h4>
+                    <p>Step-by-step flowchart for computing SVD ($A = U\Sigma V^T$) for general matrices.</p>
+                </div>
+            </div>
+
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
+
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
-    Visual Roadmaps & Guides
-</h3>
-
-<div class="carousel-container" id="roadmapCarousel">
-    <!-- Slide 1 -->
-    <div class="carousel-slide active">
-        <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
-        <div class="carousel-caption">
-            <h4>Eigenvalues & Eigenvectors Roadmap</h4>
-            <p>Step-by-step visual flowchart for finding eigenvalues and eigenvectors.</p>
-        </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="carousel-slide">
-        <img src="Solving_System_Roadmap.png" alt="Solving Systems Roadmap">
-        <div class="carousel-caption">
-            <h4>Solving Systems Roadmap</h4>
-            <p>Visual decision tree for analyzing linear system solutions using RREF, rank, and nullity.</p>
-        </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="carousel-slide">
-        <img src="SVD_Roadmap.png" alt="Singular Value Decomposition Roadmap">
-        <div class="carousel-caption">
-            <h4>Singular Value Decomposition Roadmap</h4>
-            <p>Step-by-step flowchart for computing SVD ($A = U\Sigma V^T$) for general matrices.</p>
-        </div>
-    </div>
-
-    <!-- Navigation Buttons -->
-    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-
-    <!-- Dot Navigation -->
-    <div class="carousel-dots">
-        <span class="dot active" onclick="currentSlide(0)"></span>
-        <span class="dot onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-    </div>
-</div>
-
-       <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
-    Classroom Community
-</h3>
-<div class="resource-grid">
-    <div class="resource-card">
-        <div>
+            Classroom Community
+        </h3>
+        
+        <div class="pdf-container">
             <h4>Five Minutes of Australia</h4>
             <p>Pre-class icebreaker guide featuring Australian slang, culture, wildlife facts, and classroom trivia.</p>
+            <iframe src="Five_minutes_of_Australia.pdf" class="pdf-viewer"></iframe>
+            <br><a href="Five_minutes_of_Australia.pdf" download class="download-link">📥 Download PDF</a>
         </div>
-        <!-- Embedded PDF Viewer -->
-        <iframe src="Five_minutes_of_Australia.pdf" class="pdf-viewer"></iframe>
+
     </div>
 </div>
-        
+
 <div id="research" class="page">
     <div class="container">
         <h2>Research</h2>
@@ -433,6 +378,48 @@
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
         window.scrollTo(0,0);
+    }
+
+    // Carousel JavaScript Logic
+    let slideIndex = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        if (index >= slides.length) { slideIndex = 0; }
+        if (index < 0) { slideIndex = slides.length - 1; }
+        
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        slides[slideIndex].classList.add('active');
+        dots[slideIndex].classList.add('active');
+    }
+
+    function moveSlide(step) {
+        showSlide(slideIndex += step);
+    }
+
+    function currentSlide(index) {
+        showSlide(slideIndex = index);
+    }
+
+    // Touch/Swipe Support for Mobile Devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const carousel = document.getElementById('roadmapCarousel');
+    if (carousel) {
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 40) { moveSlide(1); }
+            if (touchEndX > touchStartX + 40) { moveSlide(-1); }
+        }, false);
     }
 
     // Register Service Worker for PWA
