@@ -86,6 +86,14 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+        /* Embedded PDF Viewer Styling */
+.pdf-viewer {
+    width: 100%;
+    height: 400px; /* Adjust height as desired */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+}
 
         /* Resource Cards Styling */
     .resource-grid {
@@ -132,6 +140,99 @@
         background-color: var(--outback-gold);
         color: var(--byu-navy);
     }
+
+    /* Image Carousel Styling */
+.carousel-container {
+    position: relative;
+    max-width: 700px;
+    margin: 20px auto;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-top: 4px solid var(--byu-navy);
+}
+
+.carousel-slide {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 450px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.carousel-caption {
+    margin-top: 15px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.carousel-caption h4 {
+    margin: 0 0 5px 0;
+    color: var(--byu-navy);
+}
+
+.carousel-caption p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Prev/Next Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 46, 93, 0.7);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--outback-gold);
+    color: var(--byu-navy);
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+/* Dot Indicators */
+.carousel-dots {
+    text-align: center;
+    padding: 15px 0;
+    background: #f9f9f9;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot.active, .dot:hover {
+    background-color: var(--byu-navy);
+}
 </style>
 </head>
 <body>
@@ -207,20 +308,22 @@
                 <a href="LectureNotesTemplate.tex" download class="download-btn">Download .tex Template</a>
             </div>
 
-            <div class="resource-card">
-                <div>
-                    <h4>Math 109: Sinusoidal Graphs</h4>
-                    <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
-                </div>
-                <a href="Math109_Section_6.1.pdf" download class="download-btn">Download PDF</a>
-            </div>
+           <div class="resource-card">
+    <div>
+        <h4>Math 109: Sinusoidal Graphs</h4>
+        <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
+    </div>
+    <!-- Embedded PDF Viewer -->
+    <iframe src="Math109_Section_6.1.pdf" class="pdf-viewer"></iframe>
+</div>
 
             <div class="resource-card">
                 <div>
                     <h4>Math 112: Derivatives & Rates of Change</h4>
                     <p>Section 2.7 lecture notes on secant/tangent lines, limit definitions, and motion on Mars.</p>
                 </div>
-                <a href="Math112_Section_2.7.pdf" download class="download-btn">Download PDF</a>
+                <!-- Embedded PDF Viewer -->
+    <iframe src="Math112_Section2.7.pdf" class="pdf-viewer"></iframe>
             </div>
 
             <div class="resource-card">
@@ -228,7 +331,8 @@
                     <h4>Math 213: Final Exam Review Guide</h4>
                     <p>Collaborative 8-board review guide covering linear systems through orthogonal diagonalization and SVD.</p>
                 </div>
-                <a href="Math213_Final_Exam_Review.pdf" download class="download-btn">Download PDF</a>
+                  <!-- Embedded PDF Viewer -->
+    <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-viewer"></iframe>
             </div>
 
             <div class="resource-card">
@@ -236,14 +340,17 @@
                     <h4>Math 213: Orthogonal Complements</h4>
                     <p>Section 5.2 notes on orthogonal decomposition, fundamental subspaces, and projections.</p>
                 </div>
-                <a href="Math213_Section_5.2.pdf" download class="download-btn">Download PDF</a>
+                  <!-- Embedded PDF Viewer -->
+    <iframe src="Math213_Section_5.2.pdf" class="pdf-viewer"></iframe>
             </div>
 
             <div class="resource-card">
                 <div>
                     <h4>Math 213: Orthogonal Diagonalization</h4>
-                    <p>Section 5.4 guide on the Spectral Theorem, repeated eigenvalues, and Gram-Schmidt process.</p>
+                    <p>Section 5.4 guide on the Spectral Theorem and how to orthogonally diagonalize a matrix.</p>
                 </div>
+                  <!-- Embedded PDF Viewer -->
+    <iframe src="Math213_Section_5.4.pdf" class="pdf-viewer"></iframe>
                 <a href="Math213_Section_5.4.pdf" download class="download-btn">Download PDF</a>
             </div>
         </div>
@@ -251,31 +358,50 @@
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Visual Roadmaps & Guides
         </h3>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <h4>Eigenvalues & Eigenvectors Roadmap</h4>
-                    <p>Step-by-step visual flowchart for finding eigenvalues, eigenspaces, and eigenvectors.</p>
-                </div>
-                <a href="Eigenval_eigenvec_roadmap.png" download class="download-btn">Download Image</a>
-            </div>
 
-            <div class="resource-card">
-                <div>
-                    <h4>Solving Systems Roadmap</h4>
-                    <p>Visual decision tree for analyzing linear system solutions using RREF, rank, and nullity.</p>
-                </div>
-                <a href="Solving_System_Roadmap.png" download class="download-btn">Download Image</a>
-            </div>
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
+    Visual Roadmaps & Guides
+</h3>
 
-            <div class="resource-card">
-                <div>
-                    <h4>Singular Value Decomposition Roadmap</h4>
-                    <p>Step-by-step flowchart for computing SVD ($A = U\Sigma V^T$) for general matrices.</p>
-                </div>
-                <a href="SVD_Roadmap.png" download class="download-btn">Download Image</a>
-            </div>
+<div class="carousel-container" id="roadmapCarousel">
+    <!-- Slide 1 -->
+    <div class="carousel-slide active">
+        <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
+        <div class="carousel-caption">
+            <h4>Eigenvalues & Eigenvectors Roadmap</h4>
+            <p>Step-by-step visual flowchart for finding eigenvalues and eigenvectors.</p>
         </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide">
+        <img src="Solving_System_Roadmap.png" alt="Solving Systems Roadmap">
+        <div class="carousel-caption">
+            <h4>Solving Systems Roadmap</h4>
+            <p>Visual decision tree for analyzing linear system solutions using RREF, rank, and nullity.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide">
+        <img src="SVD_Roadmap.png" alt="Singular Value Decomposition Roadmap">
+        <div class="carousel-caption">
+            <h4>Singular Value Decomposition Roadmap</h4>
+            <p>Step-by-step flowchart for computing SVD ($A = U\Sigma V^T$) for general matrices.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+    <!-- Dot Navigation -->
+    <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+</div>
 
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Classroom Community
