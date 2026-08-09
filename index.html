@@ -84,6 +84,52 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+        /* Resource Cards Styling */
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .resource-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-top: 4px solid var(--byu-navy);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+    }
+    .resource-card h4 {
+        margin-top: 0;
+        color: var(--byu-navy);
+        font-size: 1.1rem;
+    }
+    .resource-card p {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.4;
+    }
+    .download-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 16px;
+        background-color: var(--byu-navy);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        text-align: center;
+        transition: background-color 0.2s ease;
+    }
+    .download-btn:hover {
+        background-color: var(--outback-gold);
+        color: var(--byu-navy);
+    }
 </style>
 </head>
 <body>
@@ -97,6 +143,7 @@
 <nav>
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('teaching')">Teaching</button>
+    <button onclick="showPage('resources')">Resources</button>
     <button onclick="showPage('research')">Research</button>
     <button onclick="showPage('outreach')">Outreach</button>
 </nav>
@@ -140,6 +187,108 @@
     </div>
 </div>
 
+
+<div id="resources" class="page">
+    <div class="container">
+        <h2>Teaching Resources & Handouts</h2>
+        <p>Downloadable lecture templates, visual study roadmaps, and classroom community activities.</p>
+
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">
+            Lecture Templates & Course Materials
+        </h3>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div>
+                    <h4>LaTeX Lecture Notes Template</h4>
+                    <p>Modular tcolorbox template with roadmaps, think-pair-share prompts, definitions, and strategy boxes.</p>
+                </div>
+                <a href="LectureNotesTemplate.tex" download class="download-btn">Download .tex Template</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Math 109: Sinusoidal Graphs</h4>
+                    <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
+                </div>
+                <a href="Math109_Section_6.1.pdf" download class="download-btn">Download PDF</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Math 112: Derivatives & Rates of Change</h4>
+                    <p>Section 2.7 lecture notes on secant/tangent lines, limit definitions, and motion on Mars.</p>
+                </div>
+                <a href="Math112_Section_2.7.pdf" download class="download-btn">Download PDF</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Math 213: Final Exam Review Guide</h4>
+                    <p>Collaborative 8-board review guide covering linear systems through orthogonal diagonalization and SVD.</p>
+                </div>
+                <a href="Math213_Final_Exam_Review.pdf" download class="download-btn">Download PDF</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Math 213: Orthogonal Complements</h4>
+                    <p>Section 5.2 notes on orthogonal decomposition, fundamental subspaces, and projections.</p>
+                </div>
+                <a href="Math213_Section_5.2.pdf" download class="download-btn">Download PDF</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Math 213: Orthogonal Diagonalization</h4>
+                    <p>Section 5.4 guide on the Spectral Theorem, repeated eigenvalues, and Gram-Schmidt process.</p>
+                </div>
+                <a href="Math213_Section_5.4.pdf" download class="download-btn">Download PDF</a>
+            </div>
+        </div>
+
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
+            Visual Roadmaps & Guides
+        </h3>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div>
+                    <h4>Eigenvalues & Eigenvectors Roadmap</h4>
+                    <p>Step-by-step visual flowchart for finding eigenvalues, eigenspaces, and eigenvectors.</p>
+                </div>
+                <a href="Eigenval_eigenvec_roadmap.png" download class="download-btn">Download Image</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Solving Systems Roadmap</h4>
+                    <p>Visual decision tree for analyzing linear system solutions using RREF, rank, and nullity.</p>
+                </div>
+                <a href="Solving_System_Roadmap.png" download class="download-btn">Download Image</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <h4>Singular Value Decomposition Roadmap</h4>
+                    <p>Step-by-step flowchart for computing SVD ($A = U\Sigma V^T$) for general matrices.</p>
+                </div>
+                <a href="SVD_Roadmap.png" download class="download-btn">Download Image</a>
+            </div>
+        </div>
+
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
+            Classroom Community
+        </h3>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div>
+                    <h4>Five Minutes of Australia</h4>
+                    <p>Pre-class icebreaker guide featuring Australian slang, culture, wildlife facts, and classroom trivia.</p>
+                </div>
+                <a href="Five_minutes_of_Australia.pdf" download class="download-btn">Download PDF</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="research" class="page">
     <div class="container">
         <h2>Research</h2>
