@@ -25,7 +25,6 @@
         background: var(--white);
         border-bottom: 4px solid var(--outback-gold);
     }
-    /* Profile Photo Styling */
     .profile-photo {
         width: 140px;
         height: 140px;
@@ -76,7 +75,7 @@
         color: var(--white);
         padding: 60px 20px;
     }
-    .container { max-width: 800px; margin: 0 auto; text-align: left; }
+    .container { max-width: 950px; margin: 0 auto; text-align: left; }
     h2 { color: var(--outback-gold); }
     .page { display: none; padding: 40px 20px; }
     .active { display: block; animation: fadeIn 0.5s; }
@@ -86,42 +85,96 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Embedded PDF Viewer Styling */
-    .pdf-container {
+    /* Grid Layout for Collaged PDF Cards */
+    .pdf-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
         margin-bottom: 40px;
+    }
+    
+    .pdf-card {
         background: var(--white);
         padding: 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         border-top: 4px solid var(--byu-navy);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .pdf-container h4 {
-        margin-top: 0;
+    .pdf-card h4 {
+        margin: 0 0 5px 0;
         color: var(--byu-navy);
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
-    .pdf-container p {
+    .pdf-card p {
         color: #555;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        line-height: 1.4;
     }
-    .pdf-viewer {
+    .pdf-preview {
         width: 100%;
-        height: 500px;
+        height: 280px; /* Compact height for collage grid */
         border: 1px solid #ddd;
-        border-radius: 8px;
-        margin-top: 15px;
+        border-radius: 6px;
     }
-    .download-link {
-        display: inline-block;
-        margin-top: 10px;
+    .pdf-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .btn-link {
         color: var(--byu-navy);
         font-weight: bold;
         text-decoration: none;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        cursor: pointer;
     }
-    .download-link:hover {
+    .btn-link:hover {
         color: var(--outback-gold);
-        text-decoration: underline;
+    }
+
+    /* Modal Popup for Expanded PDF View */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+        background: var(--white);
+        width: 90%;
+        max-width: 900px;
+        height: 85vh;
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: #666;
+    }
+    .modal-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 6px;
+        margin-top: 15px;
     }
 
     /* Image Carousel Styling */
@@ -136,13 +189,8 @@
         border-top: 4px solid var(--byu-navy);
         padding: 20px;
     }
-    .carousel-slide {
-        display: none;
-        text-align: center;
-    }
-    .carousel-slide.active {
-        display: block;
-    }
+    .carousel-slide { display: none; text-align: center; }
+    .carousel-slide.active { display: block; }
     .carousel-slide img {
         max-width: 100%;
         max-height: 450px;
@@ -150,20 +198,9 @@
         border-radius: 8px;
         object-fit: contain;
     }
-    .carousel-caption {
-        margin-top: 15px;
-        text-align: left;
-        padding: 0 10px;
-    }
-    .carousel-caption h4 {
-        margin: 0 0 5px 0;
-        color: var(--byu-navy);
-    }
-    .carousel-caption p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: #555;
-    }
+    .carousel-caption { margin-top: 15px; text-align: left; padding: 0 10px; }
+    .carousel-caption h4 { margin: 0 0 5px 0; color: var(--byu-navy); }
+    .carousel-caption p { margin: 0; font-size: 0.95rem; color: #555; }
     .carousel-btn {
         position: absolute;
         top: 45%;
@@ -176,31 +213,16 @@
         font-size: 1.1rem;
         border-radius: 50%;
         user-select: none;
-        transition: background-color 0.2s;
     }
-    .carousel-btn:hover {
-        background-color: var(--outback-gold);
-        color: var(--byu-navy);
-    }
+    .carousel-btn:hover { background-color: var(--outback-gold); color: var(--byu-navy); }
     .carousel-btn.prev { left: 10px; }
     .carousel-btn.next { right: 10px; }
-    .carousel-dots {
-        text-align: center;
-        padding-top: 15px;
-    }
+    .carousel-dots { text-align: center; padding-top: 15px; }
     .dot {
-        cursor: pointer;
-        height: 12px;
-        width: 12px;
-        margin: 0 4px;
-        background-color: #ccc;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.3s;
+        cursor: pointer; height: 12px; width: 12px; margin: 0 4px;
+        background-color: #ccc; border-radius: 50%; display: inline-block;
     }
-    .dot.active, .dot:hover {
-        background-color: var(--byu-navy);
-    }
+    .dot.active, .dot:hover { background-color: var(--byu-navy); }
     </style>
 </head>
 <body>
@@ -231,8 +253,8 @@
     <div class="container">
         <h2>Teaching Portfolio</h2>
         
-        <!-- Teaching Experience -->
-        <div style="text-align: left; margin-bottom: 40px;">
+        <!-- Experience List -->
+        <div style="text-align: left; margin-bottom: 30px;">
             <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">Brigham Young University</h3>
             <p><strong>Instructor of Record</strong></p>
             <ul style="line-height: 1.8;">
@@ -243,7 +265,7 @@
             </ul>
         </div>
 
-        <div style="text-align: left; margin-bottom: 50px;">
+        <div style="text-align: left; margin-bottom: 40px;">
             <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">University of the Sunshine Coast</h3>
             <p><strong>Tutorial Instructor</strong></p>
             <ul style="line-height: 1.8;">
@@ -253,69 +275,101 @@
             </ul>
         </div>
 
-        <!-- Teaching Resources Section -->
+        <!-- Collaged Course Materials Grid -->
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">
             Lecture Templates & Course Materials
         </h3>
 
-        <!-- Math 109 -->
-        <div class="pdf-container">
-            <h4>Math 109: Sinusoidal Graphs</h4>
-            <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
-            <iframe src="Math109_Section_6.1.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Math109_Section_6.1.pdf" download class="download-link">📥 Download PDF</a>
+        <div class="pdf-grid">
+
+            <!-- Math 109 -->
+            <div class="pdf-card">
+                <div>
+                    <h4>Math 109: Sinusoidal Graphs</h4>
+                    <p>Section 6.1 complete lecture worksheet covering period, midline, amplitude, and transformations.</p>
+                </div>
+                <iframe src="Math109_Section_6.1.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math109_Section_6.1.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math109_Section_6.1.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
+
+            <!-- Math 112 -->
+            <div class="pdf-card">
+                <div>
+                    <h4>Math 112: Derivatives & Rates of Change</h4>
+                    <p>Section 2.7 lecture notes on secant/tangent lines and limit definitions.</p>
+                </div>
+                <iframe src="Math112_Section_2.7.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math112_Section_2.7.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math112_Section_2.7.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
+
+            <!-- Math 213 Final Review -->
+            <div class="pdf-card">
+                <div>
+                    <h4>Math 213: Final Exam Review Guide</h4>
+                    <p>Comprehensive review guide covering linear systems through orthogonal diagonalization and SVD.</p>
+                </div>
+                <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math213_Final_Exam_Review.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
+
+            <!-- Math 213 Sec 5.2 -->
+            <div class="pdf-card">
+                <div>
+                    <h4>Math 213: Orthogonal Complements</h4>
+                    <p>Section 5.2 notes on orthogonal decomposition, fundamental subspaces, and projections.</p>
+                </div>
+                <iframe src="Math213_Section_5.2.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math213_Section_5.2.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math213_Section_5.2.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
+
+            <!-- Math 213 Sec 5.4 -->
+            <div class="pdf-card">
+                <div>
+                    <h4>Math 213: Orthogonal Diagonalization</h4>
+                    <p>Section 5.4 guide on the Spectral Theorem, repeated eigenvalues, and Gram-Schmidt process.</p>
+                </div>
+                <iframe src="Math213_Section_5.4.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math213_Section_5.4.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math213_Section_5.4.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
+
+             <!-- LaTeX Template Card -->
+            <div class="pdf-card">
+                <div>
+                    <h4>LaTeX Lecture Notes Template</h4>
+                    <p>If you like the look of my lecture notes, here is a downloadable LaTeX template.</p>
+                </div>
+                <div class="pdf-actions">
+                    <a href="Lecture_Notes_Colored_Box_Template.tex" download class="btn-link">📥 Download .tex File</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Math 112 -->
-        <div class="pdf-container">
-            <h4>Math 112: Derivatives & Rates of Change</h4>
-            <p>Section 2.7 lecture notes on secant/tangent lines and limit definitions.</p>
-            <iframe src="Math112_Section_2.7.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Math112_Section_2.7.pdf" download class="download-link">📥 Download PDF</a>
-        </div>
-
-        <!-- Math 213 Final Review -->
-        <div class="pdf-container">
-            <h4>Math 213: Final Exam Review Guide</h4>
-            <p>Comprehensive review guide covering linear systems through orthogonal diagonalization and SVD.</p>
-            <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Math213_Final_Exam_Review.pdf" download class="download-link">📥 Download PDF</a>
-        </div>
-
-        <!-- Math 213 Sec 5.2 -->
-        <div class="pdf-container">
-            <h4>Math 213: Orthogonal Complements</h4>
-            <p>Section 5.2 notes on orthogonal decomposition, fundamental subspaces, and projections.</p>
-            <iframe src="Math213_Section_5.2.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Math213_Section_5.2.pdf" download class="download-link">📥 Download PDF</a>
-        </div>
-
-        <!-- Math 213 Sec 5.4 -->
-        <div class="pdf-container">
-            <h4>Math 213: Orthogonal Diagonalization</h4>
-            <p>Section 5.4 guide on the Spectral Theorem, repeated eigenvalues, and Gram-Schmidt process.</p>
-            <iframe src="Math213_Section_5.4.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Math213_Section_5.4.pdf" download class="download-link">📥 Download PDF</a>
-        </div>
-
-          <!-- LaTeX Template -->
-        <div class="pdf-container">
-            <h4>LaTeX Lecture Notes Template</h4>
-            <p>If you like the format of my lecture notes, here is a downloadable template.</p>
-            <a href="Lecture_Notes_Colored_Box_Template.tex" download class="download-link">📥 Download .tex Template File</a>
-        </div>
-
+        <!-- Carousel Section -->
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Visual Roadmaps & Guides
         </h3>
 
-        <!-- Carousel Container -->
         <div class="carousel-container" id="roadmapCarousel">
             <div class="carousel-slide active">
                 <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
                 <div class="carousel-caption">
                     <h4>Eigenvalues & Eigenvectors Roadmap</h4>
-                    <p>Step-by-step flowchart for finding eigenvalues and eigenvectors.</p>
+                    <p>Step-by-step visual flowchart for finding eigenvalues and eigenvectors.</p>
                 </div>
             </div>
 
@@ -323,7 +377,7 @@
                 <img src="Solving_System_Roadmap.png" alt="Solving Systems Roadmap">
                 <div class="carousel-caption">
                     <h4>Solving Systems Roadmap</h4>
-                    <p>Visual decision tree for finding solutions to a linear system.</p>
+                    <p>Visual decision tree for finding the solution to a system of linear equations.</p>
                 </div>
             </div>
 
@@ -331,7 +385,7 @@
                 <img src="SVD_Roadmap.png" alt="Singular Value Decomposition Roadmap">
                 <div class="carousel-caption">
                     <h4>Singular Value Decomposition Roadmap</h4>
-                    <p>Step-by-step flowchart for computing the singular value decomposition for general matrices.</p>
+                    <p>Step-by-step flowchart for computing a singular value decomposition for general matrices.</p>
                 </div>
             </div>
 
@@ -345,15 +399,23 @@
             </div>
         </div>
 
+        <!-- Classroom Community -->
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Classroom Community
         </h3>
         
-        <div class="pdf-container">
-            <h4>Five Minutes of Australia</h4>
-            <p>Pre-class icebreaker guide featuring Australian slang, culture, wildlife facts, and classroom trivia.</p>
-            <iframe src="Five_Minutes_of_Australia.pdf" class="pdf-viewer"></iframe>
-            <br><a href="Five_Minutes_of_Australia.pdf" download class="download-link">📥 Download PDF</a>
+        <div class="pdf-grid">
+            <div class="pdf-card">
+                <div>
+                    <h4>Five Minutes of Australia</h4>
+                    <p>Pre-class icebreaker guide featuring Australian slang, culture, wildlife facts, and classroom trivia.</p>
+                </div>
+                <iframe src="Five_minutes_of_Australia.pdf" class="pdf-preview"></iframe>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Five_Minutes_of_Australia.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Five_Minutes_of_Australia.pdf" download class="btn-link">📥 Download</a>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -373,11 +435,30 @@
     </div>
 </div>
 
+<!-- Modal Popup Container -->
+<div class="modal-overlay" id="pdfModal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <iframe id="modalIframe" class="modal-iframe" src=""></iframe>
+    </div>
+</div>
+
 <script>
     function showPage(pageId) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
         window.scrollTo(0,0);
+    }
+
+    // Modal Popup Functions
+    function openModal(pdfUrl) {
+        document.getElementById('modalIframe').src = pdfUrl;
+        document.getElementById('pdfModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('pdfModal').classList.remove('active');
+        document.getElementById('modalIframe').src = '';
     }
 
     // Carousel JavaScript Logic
@@ -405,7 +486,7 @@
         showSlide(slideIndex = index);
     }
 
-    // Touch/Swipe Support for Mobile Devices
+    // Touch/Swipe Support
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -422,7 +503,6 @@
         }, false);
     }
 
-    // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
     }
