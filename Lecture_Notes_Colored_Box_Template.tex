@@ -1,0 +1,408 @@
+\documentclass[12pt]{article}
+
+% ============================================================
+% LECTURE NOTES TEMPLATE
+% Colored-box style used for Math 109 / Math 112 / Math 213
+% ============================================================
+
+% ---------- Packages ----------
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs,multicol}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{lmodern}
+
+% ---------- Page / paragraph settings ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist[itemize]{itemsep=2pt,topsep=2pt}
+\setlist[enumerate]{itemsep=4pt,topsep=4pt}
+
+% ============================================================
+% EDIT THESE FOR EACH LECTURE
+% ============================================================
+\newcommand{\coursename}{Course Name}
+\newcommand{\coursenumber}{MATH 000}
+\newcommand{\lecturesection}{0.0}
+\newcommand{\lecturetitle}{Lecture Title}
+\newcommand{\lecturesubtitle}{From this idea to the next idea}
+\newcommand{\headercourse}{Course Name}
+
+% ---------- Useful commands ----------
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+\newcommand{\ansspace}[1]{\vspace{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\DeclareMathOperator{\Null}{Null}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Span}{Span}
+
+% ============================================================
+% COLOR PALETTE
+% ============================================================
+\definecolor{courseblue}{HTML}{17365D}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{strategygreen}{HTML}{EAF6EC}
+\definecolor{warningorange}{HTML}{FFF1E2}
+\definecolor{roadmapgray}{HTML}{F3F4F6}
+\definecolor{answerblue}{HTML}{163A70}
+\definecolor{theoremred}{RGB}{140,35,45}
+\definecolor{theoremfill}{RGB}{252,245,245}
+
+% ============================================================
+% BOX STYLES
+% ============================================================
+
+% Opening recap
+\newtcolorbox{lasttimebox}{
+  enhanced,
+  colback=roadmapgray,
+  colframe=courseblue,
+  boxrule=0.8pt,
+  arc=2mm,
+  title=Last Time,
+  fonttitle=\bfseries,
+  coltitle=white,
+  attach boxed title to top left={xshift=3mm,yshift=-2mm},
+  boxed title style={colback=courseblue,arc=1mm}
+}
+
+% Today's goals / overview
+\newtcolorbox{todaybox}{
+  enhanced,
+  colback=lightblue,
+  colframe=courseblue,
+  boxrule=0.8pt,
+  arc=2mm,
+  title=Today,
+  fonttitle=\bfseries,
+  coltitle=white,
+  attach boxed title to top left={xshift=3mm,yshift=-2mm},
+  boxed title style={colback=courseblue,arc=1mm}
+}
+
+% Definitions
+% Optional title addition: \begin{definitionbox}[ -- Orthogonal Complement]
+\newtcolorbox{definitionbox}[1][]{
+  enhanced,
+  breakable,
+  colback=lightblue,
+  colframe=courseblue,
+  boxrule=0.7pt,
+  arc=2mm,
+  title=Definition#1,
+  fonttitle=\bfseries,
+  coltitle=courseblue,
+  colbacktitle=lightblue
+}
+
+% Theorems: deep burgundy and visually distinct
+% Use \begin{theorembox} for an unnamed theorem
+% or \begin{theorembox}[Spectral Theorem] for a named theorem.
+\newtcolorbox{theorembox}[1][]{
+  enhanced,
+  breakable,
+  colback=theoremfill,
+  colframe=theoremred,
+  colbacktitle=theoremred,
+  coltitle=white,
+  fonttitle=\bfseries,
+  boxrule=1.3pt,
+  arc=2mm,
+  title={Theorem\if\relax\detokenize{#1}\relax\else\ (#1)\fi},
+  attach boxed title to top left={xshift=3mm,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    arc=1mm,
+    left=2mm,
+    right=2mm,
+    top=1mm,
+    bottom=1mm
+  }
+}
+
+% Big conceptual takeaway
+\newtcolorbox{bigideabox}[1][]{
+  enhanced,
+  breakable,
+  colback=lightblue,
+  colframe=courseblue,
+  boxrule=1pt,
+  arc=2mm,
+  title=Big Idea#1,
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=courseblue
+}
+
+% Procedures / algorithms
+\newtcolorbox{strategybox}[1][]{
+  enhanced,
+  breakable,
+  colback=strategygreen,
+  colframe=ForestGreen,
+  boxrule=0.7pt,
+  arc=2mm,
+  title=Strategy#1,
+  fonttitle=\bfseries,
+  coltitle=ForestGreen,
+  colbacktitle=strategygreen
+}
+
+% Warnings / common mistakes
+\newtcolorbox{warningbox}[1][Warning]{
+  enhanced,
+  breakable,
+  colback=warningorange,
+  colframe=BurntOrange,
+  boxrule=0.7pt,
+  arc=2mm,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=BurntOrange,
+  colbacktitle=warningorange
+}
+
+% Worked or guided examples
+% Optional title: \begin{examplebox}[Quick Example]
+\newtcolorbox{examplebox}[1][Example]{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=courseblue,
+  boxrule=0.8pt,
+  arc=2mm,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=courseblue
+}
+
+% Think-pair-share / quick check / reflection
+% Use, for example: \begin{thinkbox}[Reflection]
+\newtcolorbox{thinkbox}[1][Think--Pair--Share]{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=RoyalBlue,
+  boxrule=0.8pt,
+  borderline={0.8pt}{0pt}{RoyalBlue,dashed},
+  arc=2mm,
+  title={#1},
+  fonttitle=\bfseries,
+  coltitle=RoyalBlue,
+  colbacktitle=white
+}
+
+% End-of-lecture summary
+\newtcolorbox{summarybox}{
+  enhanced,
+  breakable,
+  colback=roadmapgray,
+  colframe=courseblue,
+  boxrule=0.8pt,
+  arc=2mm,
+  title=Section \lecturesection\ Summary,
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=courseblue
+}
+
+% Transition to next lecture
+\newtcolorbox{nexttimebox}{
+  enhanced,
+  colback=lightblue,
+  colframe=courseblue,
+  boxrule=.8pt,
+  arc=2mm,
+  title=Next Time,
+  fonttitle=\bfseries,
+  coltitle=white,
+  attach boxed title to top left={xshift=3mm,yshift=-2mm},
+  boxed title style={colback=courseblue,arc=1mm}
+}
+
+% Section heading used within a lecture
+\newcommand{\sectiontitle}[1]{
+  \vspace{0.1in}
+  {\large\textbf{#1}}
+  \vspace{0.05in}\hrule\vspace{0.1in}
+}
+
+% ============================================================
+% HEADER / FOOTER
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\headercourse}
+\rhead{Section \lecturesection: \lecturetitle}
+\cfoot{\thepage}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+\begin{document}
+
+% ---------- Lecture title ----------
+\begin{center}
+{\Large\bfseries \coursenumber\ -- \coursename}\par
+\vspace{2pt}
+{\LARGE\bfseries Section \lecturesection: \lecturetitle}\par
+\vspace{3pt}
+{\large \lecturesubtitle}
+\end{center}
+
+\vspace{0.2cm}
+
+% ---------- Last Time ----------
+\begin{lasttimebox}
+Replace this text with a short connection to the previous lecture.
+\begin{itemize}
+  \item Previous idea or skill.
+  \item Previous idea or skill.
+\end{itemize}
+\end{lasttimebox}
+
+% ---------- Today ----------
+\begin{todaybox}
+Write one or two sentences explaining the main question or transition for today's lecture.
+
+By the end of today's lesson you should be able to:
+\begin{itemize}
+  \item Learning objective 1.
+  \item Learning objective 2.
+  \item Learning objective 3.
+\end{itemize}
+\end{todaybox}
+
+% ---------- Horizontal roadmap ----------
+% Change node text and widths as needed. Highlight today's node using
+% lightblue + courseblue; keep previous/future nodes roadmapgray.
+\begin{center}
+\begin{tikzpicture}[
+  node distance=6mm and 7mm,
+  every node/.style={font=\small,align=center}
+]
+
+\node[draw,rounded corners,fill=roadmapgray,
+minimum width=2.0cm,minimum height=.8cm] (one)
+{Previous\\Topic};
+
+\node[draw,rounded corners,fill=lightblue,draw=courseblue,
+line width=1pt,right=of one,
+minimum width=2.2cm,minimum height=.8cm] (two)
+{Today's\\Topic};
+
+\node[draw,rounded corners,fill=roadmapgray,right=of two,
+minimum width=2.0cm,minimum height=.8cm] (three)
+{Next\\Topic};
+
+\node[draw,rounded corners,fill=roadmapgray,right=of three,
+minimum width=2.0cm,minimum height=.8cm] (four)
+{Later\\Topic};
+
+\draw[-{Latex[length=2mm]}] (one)--(two);
+\draw[-{Latex[length=2mm]}] (two)--(three);
+\draw[-{Latex[length=2mm]}] (three)--(four);
+
+\end{tikzpicture}
+\end{center}
+
+% ============================================================
+% SAMPLE CONTENT BLOCKS
+% Delete any boxes you do not need in a particular lecture.
+% ============================================================
+
+\sectiontitle{Motivation}
+
+\begin{thinkbox}
+Ask a short conceptual question that motivates the new topic.
+
+\vspace{0.45in}
+\end{thinkbox}
+
+\sectiontitle{First Main Idea}
+
+\begin{definitionbox}
+State a new definition here.
+\[
+\text{Mathematical definition or formula.}
+\]
+\end{definitionbox}
+
+\begin{bigideabox}
+State the conceptual takeaway students should remember.
+\end{bigideabox}
+
+\begin{examplebox}
+Place a guided example here.
+
+\vspace{1.0in}
+\end{examplebox}
+
+\sectiontitle{Important Result}
+
+\begin{theorembox}[Optional Theorem Name]
+State the theorem here.
+\end{theorembox}
+
+\begin{thinkbox}[Why?]
+Give students space to explain why the theorem makes sense or connect it to earlier ideas.
+
+\vspace{0.65in}
+\end{thinkbox}
+
+\sectiontitle{Procedure / Computation}
+
+\begin{strategybox}
+To solve this type of problem:
+\begin{enumerate}
+  \item First step.
+  \item Second step.
+  \item Third step.
+\end{enumerate}
+\end{strategybox}
+
+\begin{warningbox}[Common Mistake]
+State an important caution here.
+\end{warningbox}
+
+\begin{examplebox}[You Try]
+Place an independent or partner problem here.
+
+\vspace{1.2in}
+\end{examplebox}
+
+% ---------- Reflection ----------
+\begin{thinkbox}[Reflection]
+Ask one short question that requires students to connect the major ideas from the lecture in their own words.
+
+\vspace{0.4in}
+\end{thinkbox}
+
+% ---------- Summary ----------
+\begin{summarybox}
+Today we learned how to:
+\begin{itemize}
+  \item Main learning outcome 1.
+  \item Main learning outcome 2.
+  \item Main learning outcome 3.
+\end{itemize}
+\end{summarybox}
+
+% ---------- Next Time ----------
+\begin{nexttimebox}
+Write one or two sentences that explain why the next topic is the natural next step.
+\end{nexttimebox}
+
+\end{document}
