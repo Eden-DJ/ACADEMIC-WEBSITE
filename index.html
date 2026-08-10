@@ -892,16 +892,24 @@
 
         </div>
 
-        <!-- 7. Research Activities & Workshops -->
+       <!-- Research Activities & Workshops -->
         <h3 class="home-section-title">Research Activities & Workshops</h3>
-        <ul class="news-list" style="padding-left: 20px;">
-            <li>
-                <strong>Participant</strong>, Collaborative Research Workshop in Several Complex Variables<br>
-                <span style="color: #555;">Institute for Advanced Study (IAS), Princeton, NJ (2026)</span>
-            </li>
-        </ul>
+        <div class="project-card" style="border-left: 5px solid var(--byu-navy);">
+            <h4>Collaborative Research Workshop in Several Complex Variables</h4>
+            <div class="project-authors">Institute for Advanced Study (IAS), Princeton, NJ</div>
+            <div class="project-status">2026</div>
+            
+            <div class="figure-img-container" style="min-height: auto; margin-top: 15px; margin-bottom: 8px; cursor: pointer;" onclick="openModal('Group_Photo.jpg', true)">
+                <img src="Group_Photo.jpg" alt="Participants in the Collaborative Research Workshop in Several Complex Variables" style="max-height: 360px; width: 100%; object-fit: cover;">
+            </div>
+            <div style="text-align: right; margin-bottom: 8px;">
+                <span class="btn-link" onclick="openModal('Group_Photo.jpg', true)" style="font-size: 0.85rem;">🔍 Expand / Fullscreen</span>
+            </div>
 
-    </div>
+            <p class="figure-caption" style="text-align: center; color: #555; font-size: 0.9rem; margin-top: 6px;">
+                Participants in the Collaborative Research Workshop in Several Complex Variables, Institute for Advanced Study (IAS), Princeton, 2026.
+            </p>
+        </div>
 </div>
 
 <!-- Outreach Page -->
@@ -953,19 +961,14 @@
         <div class="project-card">
             <h4>Australian Algebra Conference Organizing Committee</h4>
             <div class="project-status">2022</div>
-            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
+            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0 0 15px 0;">
                 Assisted with the organization and delivery of the Australian Algebra Conference, supporting conference logistics and participant coordination.
             </p>
+            <div class="figure-img-container" style="min-height: auto;">
+                <img src="algebra.jpg" alt="Australian Algebra Conference 2022" style="max-height: 320px; width: 100%; object-fit: cover;">
+            </div>
         </div>
 
-    </div>
-</div>
-
-<!-- Modal Popup Container -->
-<div class="modal-overlay" id="pdfModal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <iframe id="modalIframe" class="modal-iframe" src=""></iframe>
     </div>
 </div>
 
@@ -976,15 +979,40 @@
         window.scrollTo(0,0);
     }
 
-    // Modal Popup Functions
-    function openModal(pdfUrl) {
-        document.getElementById('modalIframe').src = pdfUrl;
+    // Modal Popup Function supporting both PDFs and Images
+    function openModal(fileUrl, isImage = false) {
+        const iframe = document.getElementById('modalIframe');
+        let imgContainer = document.getElementById('modalImg');
+
+        // Create modal image element dynamically if it doesn't exist
+        if (!imgContainer) {
+            imgContainer = document.createElement('img');
+            imgContainer.id = 'modalImg';
+            imgContainer.style.maxWidth = '100%';
+            imgContainer.style.maxHeight = '100%';
+            imgContainer.style.objectFit = 'contain';
+            imgContainer.style.margin = 'auto';
+            document.querySelector('.modal-content').appendChild(imgContainer);
+        }
+
+        if (isImage) {
+            iframe.style.display = 'none';
+            imgContainer.style.display = 'block';
+            imgContainer.src = fileUrl;
+        } else {
+            imgContainer.style.display = 'none';
+            iframe.style.display = 'block';
+            iframe.src = fileUrl;
+        }
+
         document.getElementById('pdfModal').classList.add('active');
     }
 
     function closeModal() {
         document.getElementById('pdfModal').classList.remove('active');
         document.getElementById('modalIframe').src = '';
+        const imgContainer = document.getElementById('modalImg');
+        if (imgContainer) imgContainer.src = '';
     }
 
     // Carousel JavaScript Logic
@@ -1014,7 +1042,7 @@
         showSlide(slideIndex = index);
     }
 
-    // Touch/Swipe Support
+    // Touch/Swipe Support for Carousel
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -1036,5 +1064,5 @@
     }
 </script>
 
-</body>
-</html>
+    <body>
+        <html>
