@@ -40,18 +40,7 @@
         background: var(--white);
         border-bottom: 4px solid var(--outback-gold);
     }
-    .profile-photo {
-        width: 230px;
-        height: 230px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--white);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        margin-bottom: 15px;
-    }
-    .profile-photo:hover {
-        transform: rotate(-3deg) scale(1.05);
-    }
+    
     h1 { 
         margin: 15px 0 5px 0; 
         font-size: 2.2rem; 
@@ -85,64 +74,142 @@
     nav button:hover {
         color: var(--outback-gold);
     }
-    .bio-section {
+
+    /* Home Page Hero Section */
+    .hero-section {
         background-color: var(--byu-navy);
         color: var(--white);
         padding: 60px 20px;
     }
-    .bio-container {
+
+    .hero-container {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 35px;
-        max-width: 850px;
+        gap: 40px;
+        max-width: 950px;
         margin: 0 auto;
         text-align: left;
     }
-    .bio-photo {
-        width: 200px;
-        height: 200px;
+
+    .hero-photo {
+        width: 220px;
+        height: 220px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid var(--white);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         flex-shrink: 0;
     }
-    .bio-text {
+
+    .hero-text {
         flex: 1;
     }
-    .bio-text h2 {
+
+    .hero-text h2 {
         color: var(--outback-gold);
         margin-top: 0;
-        margin-bottom: 12px;
-    }
-    .bio-text p {
-        line-height: 1.6;
-        margin: 0;
-        font-size: 1.05rem;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
-    @media (max-width: 650px) {
-        .bio-container {
-            flex-direction: column;
-            text-align: center;
-        }
-        .bio-text {
-            text-align: center;
-        }
+    .hero-text p {
+        line-height: 1.6;
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary {
+        background-color: var(--outback-gold);
+        color: var(--byu-navy);
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #e5a417;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+        font-weight: bold;
+        padding: 8px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--white);
+        color: var(--byu-navy);
+    }
+
+    /* Home Section Blocks & Cards */
+    .home-section-title {
+        color: var(--byu-navy);
+        border-bottom: 2px solid #eee;
+        padding-bottom: 8px;
+        margin-top: 40px;
+        text-align: left;
+    }
+
+    .two-col-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    .feature-card {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-top: 4px solid var(--byu-navy);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .feature-card h3 {
+        margin-top: 0;
+        color: var(--byu-navy);
+    }
+
+    .news-list {
+        text-align: left;
+        line-height: 1.8;
+        color: #444;
+        padding-left: 20px;
+        margin-top: 15px;
     }
 
     /* Grid Layout for Collaged PDF Cards */
-   /* Expanded Grid & Preview Dimensions */
-.pdf-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); /* Increased from 400px to 460px */
-    gap: 30px; /* Slightly larger spacing between cards */
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
+    .pdf-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
 
     .pdf-card {
         background: var(--white);
@@ -166,11 +233,11 @@
         line-height: 1.4;
     }
     .pdf-preview {
-    width: 100%;
-    height: 380px; /* Increased height from 280px to 380px */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
+        width: 100%;
+        height: 380px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+    }
     .pdf-actions {
         display: flex;
         justify-content: space-between;
@@ -282,6 +349,23 @@
         margin-top: 20px;
         text-align: left;
     }
+
+    /* Responsive Adjustments */
+    @media (max-width: 700px) {
+        .hero-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero-text {
+            text-align: center;
+        }
+        .hero-buttons {
+            justify-content: center;
+        }
+        .pdf-grid {
+            grid-template-columns: 1fr;
+        }
+    }
     </style>
 </head>
 <body>
@@ -298,18 +382,86 @@
     <button onclick="showPage('outreach')">Outreach</button>
 </nav>
 
+<!-- Home Page -->
 <div id="home" class="page active">
-    <section class="bio-section">
-        <div class="bio-container">
-            <img src="Profile_Photo.jpeg" alt="Profile Photo" class="bio-photo">
-            <div class="bio-text">
-                <h2>About Me</h2>
-                <p>I am a PhD student in Mathematics at Brigham Young University. Originally from Australia, I now focus my research and academic efforts here in Provo, Utah.</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <img src="Profile_Photo.jpeg" alt="Eden Danielsen-Jensen" class="hero-photo">
+            <div class="hero-text">
+                <h2>Hi, I'm Eden Danielsen-Jensen.</h2>
+                <p>
+                    I am a Ph.D. candidate in Mathematics at Brigham Young University, studying several complex variables and CR geometry under the supervision of Professor Jennifer Brooks. My research focuses on invariant CR mappings, proper holomorphic maps, and the geometry of real hypersurfaces. 
+                </p>
+                <p style="margin-bottom: 25px;">
+                    I am also passionate about undergraduate mathematics education, designing interactive learning experiences that help students build conceptual understanding and become confident, independent problem solvers.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showPage('research')">Explore Research</button>
+                    <button class="btn-secondary" onclick="showPage('teaching')">View Teaching</button>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- About Me Section -->
+        <h3 class="home-section-title">About Me</h3>
+        <div style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem;">
+            <p>
+                From Australia's Sunshine Coast to the Rocky Mountains, my journey in mathematics has been shaped by a passion for both research and teaching. I grew up in Queensland before moving to the United States to pursue graduate studies at BYU, where I enjoy finding ways to communicate complex ideas through clear explanations, visual design, and active learning.
+            </p>
+            <p>
+                Outside of mathematics, I enjoy hiking, travelling, and sharing Australian culture with my students through a weekly "Five Minutes of Australia" classroom tradition.
+            </p>
+        </div>
+
+        <!-- Research & Teaching Snapshots -->
+        <div class="two-col-grid">
+            <!-- Research Snapshot -->
+            <div class="feature-card">
+                <div>
+                    <h3>Research Snapshot</h3>
+                    <p style="color: #444; line-height: 1.6; font-size: 0.95rem;">
+                        My research lies in several complex variables and CR geometry, with particular focus on:
+                    </p>
+                    <ul style="color: #444; line-height: 1.6; font-size: 0.95rem; padding-left: 20px;">
+                        <li>Proper holomorphic mappings</li>
+                        <li>CR mappings between spheres and hyperquadrics</li>
+                        <li>Invariant polynomial maps</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="btn-link" onclick="showPage('research')" style="border:none; background:none; padding:0;">Learn More →</button>
+                </div>
+            </div>
+
+            <!-- Teaching Snapshot -->
+            <div class="feature-card">
+                <div>
+                    <h3>Teaching Snapshot</h3>
+                    <p style="color: #444; line-height: 1.6; font-size: 0.95rem;">
+                        I believe students learn mathematics most effectively when they understand <em>why</em> ideas work. My teaching emphasizes conceptual understanding, active learning, and visual problem-solving through guided lecture notes, collaborative reviews, and mathematical decision roadmaps.
+                    </p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="btn-link" onclick="showPage('teaching')" style="border:none; background:none; padding:0;">View Teaching Materials →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent News -->
+        <h3 class="home-section-title">Recent News</h3>
+        <ul class="news-list">
+            <li><strong>2026:</strong> Presented Ph.D. Prospectus, <em>Normal Forms for Degree 3 Ball Maps</em></li>
+            <li><strong>Summer 2026:</strong> Instructor of Record for MATH 213 (Elementary Linear Algebra)</li>
+            <li><strong>2026:</strong> Released updated modular LaTeX lecture note template for educational re-use</li>
+        </ul>
+    </div>
 </div>
 
+<!-- Teaching Page -->
 <div id="teaching" class="page">
     <div class="container">
         <h2>Teaching Portfolio</h2>
@@ -383,7 +535,7 @@
                     </p>
                 </div>
 
-                <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 380px;"></iframe>
+                <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 480px;"></iframe>
 
                 <div class="pdf-actions">
                     <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
@@ -412,7 +564,6 @@
             <strong>Roadmaps:</strong> One challenge students often face is deciding what to do next when solving a problem. To support independent problem solving, I design visual decision roadmaps that organize common solution strategies into clear, step-by-step processes. Rather than memorizing isolated procedures, students learn to recognize the structure of a problem and choose an appropriate solution path.
         </p>
 
-        <!-- Fixed Single Carousel Container -->
         <div class="carousel-container" id="roadmapCarousel">
             <div class="carousel-slide active">
                 <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
@@ -457,7 +608,6 @@
             <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
 
-            <!-- Corrected 5 Navigation Dots for 5 Slides -->
             <div class="carousel-dots">
                 <span class="dot active" onclick="currentSlide(0)"></span>
                 <span class="dot" onclick="currentSlide(1)"></span>
