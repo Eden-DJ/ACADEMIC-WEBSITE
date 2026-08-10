@@ -75,15 +75,54 @@
         color: var(--white);
         padding: 60px 20px;
     }
-    .container { max-width: 950px; margin: 0 auto; text-align: left; }
-    h2 { color: var(--outback-gold); }
-    .page { display: none; padding: 40px 20px; }
-    .active { display: block; animation: fadeIn 0.5s; }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    /* Updated Bio Section for Side-by-Side Layout */
+.bio-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.bio-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0; /* Prevents image from shrinking on smaller screens */
+}
+
+.bio-text {
+    flex: 1;
+}
+
+.bio-text h2 {
+    color: var(--outback-gold);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bio-text p {
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 650px) {
+    .bio-container {
+        flex-direction: column;
+        text-align: center;
     }
+    .bio-text {
+        text-align: center;
+    }
+}
 
     /* Grid Layout for Collaged PDF Cards */
     .pdf-grid {
