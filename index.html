@@ -93,19 +93,17 @@
         text-align: left;
     }
 
-    .hero-photo, .profile-photo {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--white);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
-
-    /* Crisp Image Rendering Hints */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
+    .hero-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--white);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
 
     .hero-text {
         flex: 1;
@@ -130,23 +128,6 @@
         flex-wrap: wrap;
     }
 
-    .btn-primary {
-        background-color: var(--outback-gold);
-        color: var(--byu-navy);
-        font-weight: bold;
-        padding: 10px 20px;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: background-color 0.2s ease;
-    }
-
-    .btn-primary:hover {
-        background-color: #e5a417;
-    }
-
     .btn-secondary {
         background-color: transparent;
         color: var(--white);
@@ -165,7 +146,7 @@
         color: var(--byu-navy);
     }
 
-    /* Home Section Blocks & Cards */
+    /* Home & Research Section Titles */
     .home-section-title {
         color: var(--byu-navy);
         border-bottom: 2px solid #eee;
@@ -206,6 +187,41 @@
         margin-top: 15px;
     }
 
+    /* Cards for Research and Projects */
+    .project-card {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-left: 5px solid var(--byu-navy);
+        text-align: left;
+        margin-bottom: 25px;
+    }
+
+    .project-card h4 {
+        margin: 0 0 5px 0;
+        color: var(--byu-navy);
+        font-size: 1.2rem;
+    }
+
+    .project-authors {
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+    }
+
+    .project-status {
+        display: inline-block;
+        background: #eef4f8;
+        color: var(--byu-navy);
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.82rem;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
     /* Grid Layout for Collaged PDF Cards */
     .pdf-grid {
         display: grid;
@@ -225,29 +241,21 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    .pdf-card h4 {
-        margin: 0 0 5px 0;
-        color: var(--byu-navy);
-        font-size: 1.15rem;
-    }
-    .pdf-card p {
-        color: #555;
-        font-size: 0.9rem;
-        margin-bottom: 12px;
-        line-height: 1.4;
-    }
+
     .pdf-preview {
         width: 100%;
         height: 380px;
         border: 1px solid #ddd;
         border-radius: 6px;
     }
+
     .pdf-actions {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 12px;
     }
+
     .btn-link {
         color: var(--byu-navy);
         font-weight: bold;
@@ -255,11 +263,30 @@
         font-size: 0.85rem;
         cursor: pointer;
     }
+
     .btn-link:hover {
         color: var(--outback-gold);
     }
 
-    /* Modal Popup for Expanded PDF View */
+    /* Tags for Research Interests */
+    .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .tag {
+        background-color: #f0f4f8;
+        color: var(--byu-navy);
+        border: 1px solid #d0dbe5;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /* Modal Popup */
     .modal-overlay {
         display: none;
         position: fixed;
@@ -269,7 +296,9 @@
         justify-content: center;
         align-items: center;
     }
+
     .modal-overlay.active { display: flex; }
+
     .modal-content {
         background: var(--white);
         width: 90%;
@@ -281,6 +310,7 @@
         display: flex;
         flex-direction: column;
     }
+
     .modal-close {
         position: absolute;
         top: 12px;
@@ -290,6 +320,7 @@
         cursor: pointer;
         color: #666;
     }
+
     .modal-iframe {
         width: 100%;
         height: 100%;
@@ -298,7 +329,7 @@
         margin-top: 15px;
     }
 
-    /* Image Carousel Styling */
+    /* Image Carousel */
     .carousel-container {
         position: relative;
         max-width: 100%;
@@ -310,8 +341,10 @@
         border-top: 4px solid var(--byu-navy);
         padding: 20px;
     }
+
     .carousel-slide { display: none; text-align: center; }
     .carousel-slide.active { display: block; }
+
     .carousel-slide img {
         max-width: 100%;
         max-height: 450px;
@@ -319,9 +352,11 @@
         border-radius: 8px;
         object-fit: contain;
     }
+
     .carousel-caption { margin-top: 15px; text-align: left; padding: 0 10px; }
     .carousel-caption h4 { margin: 0 0 5px 0; color: var(--byu-navy); }
     .carousel-caption p { margin: 0; font-size: 0.95rem; color: #555; }
+
     .carousel-btn {
         position: absolute;
         top: 45%;
@@ -335,17 +370,20 @@
         border-radius: 50%;
         user-select: none;
     }
+
     .carousel-btn:hover { background-color: var(--outback-gold); color: var(--byu-navy); }
     .carousel-btn.prev { left: 10px; }
     .carousel-btn.next { right: 10px; }
+
     .carousel-dots { text-align: center; padding-top: 15px; }
+
     .dot {
         cursor: pointer; height: 12px; width: 12px; margin: 0 4px;
         background-color: #ccc; border-radius: 50%; display: inline-block;
     }
+
     .dot.active, .dot:hover { background-color: var(--byu-navy); }
 
-    /* Courses Taught Two-Column Grid */
     .course-columns {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -354,7 +392,6 @@
         text-align: left;
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 700px) {
         .hero-container {
             flex-direction: column;
@@ -411,26 +448,26 @@
     <!-- Main Content Container -->
     <div class="container">
        <!-- About Me Section -->
-<h3 class="home-section-title">About Me</h3>
-<div style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem;">
-    <p>
-        From Australia's Sunshine Coast to the Rocky Mountains, my journey in mathematics has been shaped by a passion for both research and teaching. I grew up in Queensland before moving to the United States to pursue graduate studies at BYU, where I enjoy finding ways to communicate complex ideas through clear explanations, visual design, and active learning.
-    </p>
-    <p>
-        Outside of mathematics, I enjoy reading, baking, travelling, and sharing Australian culture with my students through a weekly "Five Minutes of Australia" classroom tradition.
-    </p>
+        <h3 class="home-section-title">About Me</h3>
+        <div style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem;">
+            <p>
+                From Australia's Sunshine Coast to the Rocky Mountains, my journey in mathematics has been shaped by a passion for both research and teaching. I grew up in Queensland before moving to the United States to pursue graduate studies at BYU, where I enjoy finding ways to communicate complex ideas through clear explanations, visual design, and active learning.
+            </p>
+            <p>
+                Outside of mathematics, I enjoy reading, baking, travelling, and sharing Australian culture with my students through a weekly "Five Minutes of Australia" classroom tradition.
+            </p>
 
-    <div class="quick-facts">
-        <h4>Fun Facts</h4>
-        <ul>
-            <li>🔆 Originally from the Sunshine Coast, Queensland, Australia.</li>
-            <li>🏐 Member of the 2022 Australian UniSport Nationals Division I Championship volleyball team.</li>
-            <li>🦔 Proud owner of a pet hedgehog named Pickles.</li>
-        </ul>
-    </div>
-</div>
+            <div class="quick-facts">
+                <h4>Fun Facts</h4>
+                <ul>
+                    <li>🔆 Originally from the Sunshine Coast, Queensland, Australia.</li>
+                    <li>🏐 Member of the 2022 Australian UniSport Nationals Division I Championship volleyball team.</li>
+                    <li>🦔 Proud owner of a pet hedgehog named Pickles.</li>
+                </ul>
+            </div>
+        </div>
 
-       <!-- Research & Teaching Snapshots -->
+        <!-- Research & Teaching Snapshots -->
         <div class="two-col-grid">
 
             <!-- Teaching Snapshot -->
@@ -464,7 +501,7 @@
                 </div>
             </div>
 
-        </div> <!-- Properly closing two-col-grid after BOTH cards -->
+        </div>
 
        <!-- Recent News -->
         <h3 class="home-section-title">Recent News</h3>
@@ -473,6 +510,8 @@
             <li><strong>Summer 2026:</strong> Instructor of Record for MATH 213 (Elementary Linear Algebra)</li>
             <li><strong>2026:</strong> Released updated LaTeX lecture note template for educational re-use</li>
         </ul>
+    </div>
+</div>
 
 <!-- Teaching Page -->
 <div id="teaching" class="page">
@@ -649,12 +688,11 @@
             </div>
         </div>
 
-        <!-- Experience List (2 Columns Layout) -->
+        <!-- Experience List -->
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 50px; text-align: left;">
             Teaching & Pedagogical Experience
         </h3>
         <div class="course-columns">
-            <!-- BYU Column -->
             <div>
                 <h4 style="color: var(--byu-navy); margin-bottom: 5px;">Brigham Young University</h4>
                 
@@ -680,7 +718,6 @@
                 </ul>
             </div>
 
-            <!-- UniSC Column -->
             <div>
                 <h4 style="color: var(--byu-navy); margin-bottom: 5px;">University of the Sunshine Coast</h4>
                 <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Tutorial Instructor</strong></p>
@@ -694,13 +731,112 @@
     </div>
 </div>
 
+<!-- Research Page -->
 <div id="research" class="page">
     <div class="container">
-        <h2>Research</h2>
-        <p>Publications and ongoing research projects.</p>
+        
+        <!-- Research Overview -->
+        <h3 class="home-section-title" style="margin-top: 20px;">Research Overview</h3>
+        <div style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem;">
+            <p>
+                My research lies in Several Complex Variables (SCV) and CR Geometry, with a particular interest in proper holomorphic mappings, invariant CR maps, and the geometry of real hypersurfaces. I am especially interested in understanding how symmetry influences the existence and complexity of CR maps between spheres and hyperquadrics. My current work combines techniques from complex analysis, algebraic geometry, and computational mathematics to investigate sharp lower bounds, construct new examples, and study invariant polynomial mappings.
+            </p>
+        </div>
+
+        <!-- Research Interests -->
+        <h3 class="home-section-title">Research Interests</h3>
+        <div class="tag-container" style="text-align: left;">
+            <span class="tag">Several Complex Variables</span>
+            <span class="tag">CR Geometry</span>
+            <span class="tag">Proper Holomorphic Mappings</span>
+            <span class="tag">Invariant CR Maps</span>
+            <span class="tag">Hyperquadrics</span>
+        </div>
+
+        <!-- Visualizing the Geometry -->
+        <h3 class="home-section-title">Visualizing the Geometry</h3>
+        <div class="feature-card" style="text-align: left; background: var(--white); border-top: 4px solid var(--byu-navy);">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fdfdfd; padding: 25px; border-radius: 8px; border: 1px dashed #c0d0e0; margin-bottom: 15px;">
+                <!-- Replace 'research_diagram.png' with your image file name -->
+                <img src="research_diagram.png" alt="CR Mapping Sphere Diagram" style="max-width: 100%; max-height: 320px; border-radius: 6px;" onerror="this.style.display='none'; document.getElementById('fig-placeholder').style.display='block';">
+                
+                <div id="fig-placeholder" style="display: none; text-align: center; color: #777; padding: 40px 20px;">
+                    <span style="font-size: 2.5rem;">📐</span>
+                    <p style="margin: 10px 0 0 0; font-style: italic;">[ Research Figure Placeholder: Mapping from a Sphere to a Hyperquadric / Signature Diagram ]</p>
+                </div>
+            </div>
+            <p style="color: #555; font-size: 0.92rem; line-height: 1.5; margin: 0;">
+                <em>Figure:</em> Geometric representation of invariant polynomial mappings and signature distributions for degree-three mappings between hyperquadrics.
+            </p>
+        </div>
+
+        <!-- Current Projects -->
+        <h3 class="home-section-title">Current Projects</h3>
+        
+        <div class="project-card">
+            <h4>Lower Bounds for Invariant CR Maps</h4>
+            <div class="project-authors">Jennifer Brooks, Eden Danielsen-Jensen, Dusty Grundmeier, Alex Lee</div>
+            <div><span class="project-status">In preparation</span></div>
+            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
+                We investigate lower bounds for invariant CR maps between spheres and hyperquadrics. By combining computational techniques with the theory of invariant polynomial maps, we construct new examples and establish improved lower bounds for families of group-invariant mappings.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h4>Degree Three Ball Maps and Normal Forms</h4>
+            <div class="project-authors">Eden Danielsen-Jensen, Dusty Grundmeier, Abdullah Al Helal, Valentin Kunz, Jiri Lebl,  Ming Xiao,  Weixia Zhu</div>
+            <div><span class="project-status">In preparation (Working Title)</span></div>
+            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
+                Exploring equivalence classes, signature matrices, and explicit polynomial representations for degree-three mappings from the unit ball to hyperquadrics under symmetry restrictions.
+            </p>
+        </div>
+
+
+        <!-- Presentations -->
+        <h3 class="home-section-title">Presentations</h3>
+        
+        <div style="text-align: left; margin-top: 15px;">
+            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Several Complex Variables</h4>
+            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
+                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">Signatures for Group-Invariant Monomial Maps from Spheres to Hyperquadrics</p>
+                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+                    <li>Joint Mathematics Meetings (JMM), 2026</li>
+                    <li>MAA Intermountain Section Meeting, 2026</li>
+                    <li>BYU Student Research Conference, 2026</li>
+                </ul>
+            </div>
+
+            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Algebra</h4>
+            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
+                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">A Revised Introduction for the Base Semisimple Class</p>
+                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+                    <li>Australian Algebra Conference, 2022</li>
+                    <li>Australian Mathematical Society Conference, 2022</li>
+                </ul>
+            </div>
+
+            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Honours Presentation</h4>
+            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
+                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">Honours Research Presentation</p>
+                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+                    <li>University of the Sunshine Coast, 2022</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Research Activities & Workshops -->
+        <h3 class="home-section-title">Research Activities & Workshops</h3>
+        <ul class="news-list" style="padding-left: 20px;">
+            <li>
+                <strong>Participant</strong>, Collaborative Research Workshop in Several Complex Variables<br>
+                <span style="color: #555;">Institute for Advanced Study (IAS), Princeton, NJ (2026)</span>
+            </li>
+        </ul>
+
     </div>
 </div>
 
+<!-- Outreach Page -->
 <div id="outreach" class="page">
     <div class="container">
         <h2>Mentoring and Outreach</h2>
