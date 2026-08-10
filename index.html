@@ -20,6 +20,21 @@
         color: #333;
         background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
     }
+
+    /* Tab Page Visibility Fix */
+    .page {
+        display: none;
+    }
+    .page.active {
+        display: block;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
     .header {
         padding: 40px 20px;
         background: var(--white);
@@ -75,54 +90,48 @@
         color: var(--white);
         padding: 60px 20px;
     }
-    /* Updated Bio Section for Side-by-Side Layout */
-.bio-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 35px;
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.bio-photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--white);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0; /* Prevents image from shrinking on smaller screens */
-}
-
-.bio-text {
-    flex: 1;
-}
-
-.bio-text h2 {
-    color: var(--outback-gold);
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-.bio-text p {
-    line-height: 1.6;
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-/* Responsive adjustment for mobile screens */
-@media (max-width: 650px) {
     .bio-container {
-        flex-direction: column;
-        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        max-width: 850px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .bio-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--white);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        flex-shrink: 0;
     }
     .bio-text {
-        text-align: center;
+        flex: 1;
     }
-}
+    .bio-text h2 {
+        color: var(--outback-gold);
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+    .bio-text p {
+        line-height: 1.6;
+        margin: 0;
+        font-size: 1.05rem;
+    }
+
+    @media (max-width: 650px) {
+        .bio-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        .bio-text {
+            text-align: center;
+        }
+    }
 
     /* Grid Layout for Collaged PDF Cards */
     .pdf-grid {
@@ -132,7 +141,6 @@
         margin-top: 20px;
         margin-bottom: 40px;
     }
-    
     .pdf-card {
         background: var(--white);
         padding: 20px;
@@ -142,7 +150,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-}
+    }
     .pdf-card h4 {
         margin: 0 0 5px 0;
         color: var(--byu-navy);
@@ -269,6 +277,7 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
         margin-top: 20px;
+        text-align: left;
     }
     </style>
 </head>
@@ -300,21 +309,21 @@
     <div class="container">
         <h2>Teaching Portfolio</h2>
         
-       <!-- Teaching Statement -->
-<div style="font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 40px;">
-    <p>
-        My goal as an instructor is to help students develop a deep conceptual understanding of mathematics while becoming confident, independent problem solvers. I strive to create a classroom where students actively engage with ideas, explain their reasoning, and recognize connections between concepts rather than relying on memorized procedures.
-    </p>
-    <p>
-        To support this, I design my own guided lecture templates, visual problem-solving roadmaps, and collaborative review activities that help students organize their thinking and develop effective mathematical decision-making skills. 
-    </p>
-    <p>
-        Below is a sampling of materials across Precalculus, Calculus, and Linear Algebra. <strong>All materials on this page—including my customizable LaTeX lecture note template—are freely available to download, adapt, or modify for non-commercial educational use.</strong>
-    </p>
-</div>
+        <!-- Teaching Statement -->
+        <div style="font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 40px; text-align: left;">
+            <p>
+                My goal as an instructor is to help students develop a deep conceptual understanding of mathematics while becoming confident, independent problem solvers. I strive to create a classroom where students actively engage with ideas, explain their reasoning, and recognize connections between concepts rather than relying on memorized procedures.
+            </p>
+            <p>
+                To support this, I design my own guided lecture templates, visual problem-solving roadmaps, and collaborative review activities that help students organize their thinking and develop effective mathematical decision-making skills. 
+            </p>
+            <p>
+                Below is a sampling of materials across Precalculus, Calculus, and Linear Algebra. <strong>All materials on this page—including my customizable LaTeX lecture note template—are freely available to download, adapt, or modify for non-commercial educational use.</strong>
+            </p>
+        </div>
         
         <!-- Collaged Course Materials Grid -->
-        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; text-align: left;">
             Lecture Templates & Course Materials
         </h3>
 
@@ -355,33 +364,31 @@
                 </div>
             </div>
 
-           <!-- Math 213 Final Review -->
-<div class="pdf-card" style="grid-column: 1 / -1;">
-    <div style="margin-bottom: 15px;">
-        <h4 style="color: var(--byu-navy); margin-top: 0; font-size: 1.25rem;">
-            Collaborative Blackboard Exam Reviews
-        </h4>
+            <!-- Math 213 Final Review -->
+            <div class="pdf-card" style="grid-column: 1 / -1;">
+                <div style="margin-bottom: 15px; text-align: left;">
+                    <h4 style="color: var(--byu-navy); margin-top: 0; font-size: 1.25rem;">
+                        Collaborative Blackboard Exam Reviews
+                    </h4>
+                    <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
+                        Rather than holding a traditional instructor-led review session, I prepare students for exams through <strong>collaborative blackboard review activities</strong>. Students work together at topic-based stations to explain ideas, solve problems, and learn from one another while I circulate to provide targeted guidance and address misconceptions.
+                    </p>
+                    <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                        This format transforms a review into an active learning experience, encouraging mathematical communication, peer teaching, and independent problem-solving while allowing students to focus on the topics they find most challenging.
+                    </p>
+                </div>
 
-        <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
-            Rather than holding a traditional instructor-led review session, I prepare students for exams through <strong>collaborative blackboard review activities</strong>. Students work together at topic-based stations to explain ideas, solve problems, and learn from one another while I circulate to provide targeted guidance and address misconceptions.
-        </p>
+                <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 380px;"></iframe>
 
-        <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
-            This format transforms a review into an active learning experience, encouraging mathematical communication, peer teaching, and independent problem-solving while allowing students to focus on the topics they find most challenging.
-        </p>
-    </div>
-
-    <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 380px;"></iframe>
-
-    <div class="pdf-actions">
-        <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
-        <a href="Math213_Final_Exam_Review.pdf" download class="btn-link">📥 Download Review Guide</a>
-    </div>
-</div>
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math213_Final_Exam_Review.pdf" download class="btn-link">📥 Download Review Guide</a>
+                </div>
+            </div>
 
             <!-- LaTeX Template Card -->
             <div class="pdf-card">
-                <div style="padding: 10px 0;">
+                <div style="padding: 10px 0; text-align: left;">
                     <h4 style="color: var(--byu-navy); margin-top:0;">LaTeX Lecture Notes Template</h4>
                     <p style="color: #555; font-size: 0.9rem; margin-bottom: 0;">Modular tcolorbox template with roadmaps, think-pair-share prompts, definitions, and strategy boxes.</p>
                 </div>
@@ -392,14 +399,15 @@
         </div>
 
         <!-- Carousel Section -->
-        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px; text-align: left;">
             Visual Roadmaps & Guides
         </h3>
         
-        <p style="color: #444; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">
+        <p style="color: #444; font-size: 1rem; line-height: 1.7; margin-bottom: 20px; text-align: left;">
             <strong>Roadmaps:</strong> One challenge students often face is deciding what to do next when solving a problem. To support independent problem solving, I design visual decision roadmaps that organize common solution strategies into clear, step-by-step processes. Rather than memorizing isolated procedures, students learn to recognize the structure of a problem and choose an appropriate solution path.
         </p>
 
+        <!-- Fixed Single Carousel Container -->
         <div class="carousel-container" id="roadmapCarousel">
             <div class="carousel-slide active">
                 <img src="Eigenval_eigenvec_roadmap.png" alt="Eigenvalues and Eigenvectors Roadmap">
@@ -409,8 +417,7 @@
                 </div>
             </div>
 
-        <div class="carousel-container" id="roadmapCarousel">
-            <div class="carousel-slide active">
+            <div class="carousel-slide">
                 <img src="Finding_Eigenvalues_Roadmap.png" alt="Eigenvalues Roadmap">
                 <div class="carousel-caption">
                     <h4>Eigenvalues Roadmap</h4>
@@ -418,8 +425,7 @@
                 </div>
             </div>
 
-        <div class="carousel-container" id="roadmapCarousel">
-            <div class="carousel-slide active">
+            <div class="carousel-slide">
                 <img src="Linear_Independence_Roadmap.png" alt="Linear Independence Roadmap">
                 <div class="carousel-caption">
                     <h4>Linear Independence Roadmap</h4>
@@ -446,23 +452,26 @@
             <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
 
+            <!-- Corrected 5 Navigation Dots for 5 Slides -->
             <div class="carousel-dots">
                 <span class="dot active" onclick="currentSlide(0)"></span>
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
             </div>
         </div>
 
         <!-- Classroom Community -->
-        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px; text-align: left;">
             Classroom Community
         </h3>
         
         <div class="pdf-grid" style="margin-bottom: 50px;">
             <div class="pdf-card">
-                <div>
+                <div style="text-align: left;">
                     <h4>Five Minutes of Australia</h4>
-                    <p> <strong> Building classroom community is just as important as building mathematical understanding.</strong> During the semester, I spend five minutes at the beginning of each class sharing a different aspect of Australian culture, helping students get to know me while encouraging conversation and creating a welcoming classroom environment.</p>
+                    <p><strong>Building classroom community is just as important as building mathematical understanding.</strong> During the semester, I spend five minutes at the beginning of each class sharing a different aspect of Australian culture, helping students get to know me while encouraging conversation and creating a welcoming classroom environment.</p>
                 </div>
                 <iframe src="Five_Minutes_of_Australia.pdf" class="pdf-preview"></iframe>
                 <div class="pdf-actions">
@@ -472,48 +481,48 @@
             </div>
         </div>
 
-       <!-- Experience List (2 Columns Layout) -->
-<h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 50px;">
-    Teaching & Pedagogical Experience
-</h3>
-<div class="course-columns">
-    <!-- BYU Column -->
-    <div>
-        <h4 style="color: var(--byu-navy); margin-bottom: 5px;">Brigham Young University</h4>
-        
-        <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Instructor of Record</strong></p>
-        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
-            <li><strong>MATH 213</strong>: Elementary Linear Algebra</li>
-            <li><strong>MATH 112</strong>: Calculus I</li>
-            <li><strong>MATH 109</strong>: Precalculus Mathematics</li>
-            <li><strong>MATH 116</strong>: Essentials of Calculus</li>
-        </ul>
+        <!-- Experience List (2 Columns Layout) -->
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 50px; text-align: left;">
+            Teaching & Pedagogical Experience
+        </h3>
+        <div class="course-columns">
+            <!-- BYU Column -->
+            <div>
+                <h4 style="color: var(--byu-navy); margin-bottom: 5px;">Brigham Young University</h4>
+                
+                <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Instructor of Record</strong></p>
+                <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+                    <li><strong>MATH 213</strong>: Elementary Linear Algebra</li>
+                    <li><strong>MATH 112</strong>: Calculus I</li>
+                    <li><strong>MATH 109</strong>: Precalculus Mathematics</li>
+                    <li><strong>MATH 116</strong>: Essentials of Calculus</li>
+                </ul>
 
-        <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Teaching Assistant & Recitation Leader</strong></p>
-        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
-            <li><strong>MATH 113</strong>: Calculus II</li>
-            <li><strong>MATH 341</strong>: Theory of Analysis I</li>
-        </ul>
+                <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Teaching Assistant & Recitation Leader</strong></p>
+                <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+                    <li><strong>MATH 113</strong>: Calculus II</li>
+                    <li><strong>MATH 341</strong>: Theory of Analysis I</li>
+                </ul>
 
-        <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Grader</strong></p>
-        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
-            <li><strong>MATH 570</strong>: Matrix Analysis</li>
-            <li><strong>MATH 510</strong>: Numerical Linear Algebra</li>
-            <li><strong>MATH 314</strong>: Calculus of Several Variables</li>
-        </ul>
-    </div>
+                <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Grader</strong></p>
+                <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+                    <li><strong>MATH 570</strong>: Matrix Analysis</li>
+                    <li><strong>MATH 510</strong>: Numerical Linear Algebra</li>
+                    <li><strong>MATH 314</strong>: Calculus of Several Variables</li>
+                </ul>
+            </div>
 
-    <!-- UniSC Column -->
-    <div>
-        <h4 style="color: var(--byu-navy); margin-bottom: 5px;">University of the Sunshine Coast</h4>
-        <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Tutorial Instructor</strong></p>
-        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
-            <li><strong>MATH 104</strong>: Introductory Calculus</li>
-            <li><strong>MATH 103</strong>: Introduction to Applied Mathematics</li>
-            <li><strong>SCI 110</strong>: Science Research Methods</li>
-        </ul>
-    </div>
-</div>
+            <!-- UniSC Column -->
+            <div>
+                <h4 style="color: var(--byu-navy); margin-bottom: 5px;">University of the Sunshine Coast</h4>
+                <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Tutorial Instructor</strong></p>
+                <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+                    <li><strong>MATH 104</strong>: Introductory Calculus</li>
+                    <li><strong>MATH 103</strong>: Introduction to Applied Mathematics</li>
+                    <li><strong>SCI 110</strong>: Science Research Methods</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -571,7 +580,9 @@
         dots.forEach(dot => dot.classList.remove('active'));
         
         slides[slideIndex].classList.add('active');
-        dots[slideIndex].classList.add('active');
+        if (dots[slideIndex]) {
+            dots[slideIndex].classList.add('active');
+        }
     }
 
     function moveSlide(step) {
