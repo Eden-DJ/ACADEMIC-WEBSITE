@@ -321,24 +321,6 @@
         color: var(--outback-gold);
     }
 
-    /* Tags for Research Interests */
-    .tag-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 15px;
-    }
-
-    .tag {
-        background-color: #f0f4f8;
-        color: var(--byu-navy);
-        border: 1px solid #d0dbe5;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-
     /* Modal Popup */
     .modal-overlay {
         display: none;
@@ -362,6 +344,8 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .modal-close {
@@ -515,7 +499,7 @@
 
             <div class="quick-facts">
                 <h4>Fun Facts</h4>
-                <ul>
+                <ul style="text-align: left; padding-left: 20px; line-height: 1.8;">
                     <li>🔆 Originally from the Sunshine Coast, Queensland, Australia.</li>
                     <li>🏐 Member of the 2022 Australian UniSport Nationals Division I Championship volleyball team.</li>
                     <li>🦔 Proud owner of a pet hedgehog named Pickles.</li>
@@ -802,7 +786,7 @@
             </p>
         </div>
 
-       <!-- 2 & 3. Side-by-Side Visualizations (Sphere Mapping & Signature Plots) -->
+        <!-- 2 & 3. Side-by-Side Visualizations -->
         <h3 class="home-section-title">Research at a Glance</h3>
         
         <div class="figure-grid">
@@ -811,7 +795,6 @@
             <div class="figure-card">
                 <div>
                     <div class="figure-img-container">
-                        <!-- Replace 'Sphere_to_Hyperquadric.png' with your image file name -->
                         <img src="Sphere_to_Hyperquadric.png" alt="Group-invariant CR map from sphere to hyperquadric">
                     </div>
                 </div>
@@ -824,75 +807,17 @@
             <div class="figure-card">
                 <div>
                     <div class="figure-img-container">
-                        <!-- Replace 'signature_plot.png' with your image file name -->
-                        <img src="signature_plot.png" alt="Signature Plot for Group-Invariant Monomial Maps">
+                        <img src="signature_plot.png" alt="Signature Plot Analysis">
                     </div>
                 </div>
                 <p class="figure-caption">
-                    Signature plots provide a visual summary of group-invariant polynomial maps constructed in my research, helping organize known constructions, reveal patterns, identify examples, and guide lower bound searches.
+                    Computational analysis of invariant polynomial forms helps identify signature distributions and sharp lower bounds for target dimensions.
                 </p>
             </div>
 
         </div>
-      
 
-        <!-- 4. Research Interests -->
-        <h3 class="home-section-title">Research Interests</h3>
-        <div class="tag-container" style="text-align: left;">
-            <span class="tag">Several Complex Variables</span>
-            <span class="tag">CR Geometry</span>
-            <span class="tag">Proper Holomorphic Mappings</span>
-            <span class="tag">Invariant CR Maps</span>
-            <span class="tag">Hyperquadrics</span>
-        </div>
-
-        <!-- 5. Current Projects -->
-        <h3 class="home-section-title">Current Projects</h3>
-        
-        <div class="project-card">
-            <h4>Lower Bounds for Invariant CR Maps</h4>
-            <div class="project-authors">Jennifer Brooks, Eden Danielsen-Jensen, Dusty Grundmeier, Alex Lee</div>
-            <div><span class="project-status">In preparation</span></div>
-            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
-                We investigate lower bounds for group-invariant CR maps between spheres and hyperquadrics. By reformulating the problem in terms of invariant polynomials, their signatures, and associated positive matrices, we develop a new proof of sharp lower bounds relating the degree of the map to the target dimension.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h4>Degree Three Ball Maps and Normal Forms</h4>
-            <div class="project-authors">Eden Danielsen-Jensen, Dusty Grundmeier, Abdullah Al Helal, Valentin Kunz, Jiri Lebl, Ming Xiao, Weixia Zhu</div>
-            <div><span class="project-status">In preparation (Working Title)</span></div>
-            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
-                We study degree-three rational sphere maps between complex unit balls. Using Gram matrix techniques, we characterize exactly which normalized quadratic denominators admit sphere maps, develop canonical Gram normal forms, and describe the resulting moduli space.
-            </p>
-        </div>
-
-        <!-- 6. Presentations -->
-        <h3 class="home-section-title">Presentations</h3>
-        
-        <div style="text-align: left; margin-top: 15px;">
-            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Several Complex Variables</h4>
-            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
-                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">Signatures for Group-Invariant Monomial Maps from Spheres to Hyperquadrics</p>
-                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
-                    <li>Joint Mathematics Meetings (JMM), 2026</li>
-                    <li>MAA Intermountain Section Meeting, 2026</li>
-                    <li>BYU Student Research Conference, 2026</li>
-                </ul>
-            </div>
-
-            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Algebra</h4>
-            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
-                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">A Revised Introduction for the Base Semisimple Class</p>
-                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
-                    <li>Australian Algebra Conference, 2022</li>
-                    <li>Australian Mathematical Society Conference, 2022</li>
-                </ul>
-            </div>
-
-        </div>
-
-       <!-- Research Activities & Workshops -->
+        <!-- Research Activities & Workshops -->
         <h3 class="home-section-title">Research Activities & Workshops</h3>
         <div class="project-card" style="border-left: 5px solid var(--byu-navy);">
             <h4>Collaborative Research Workshop in Several Complex Variables</h4>
@@ -910,18 +835,15 @@
                 Participants in the Collaborative Research Workshop in Several Complex Variables, Institute for Advanced Study (IAS), Princeton, 2026.
             </p>
         </div>
+
+    </div>
 </div>
 
-<!-- Outreach Page -->
+<!-- Service & Outreach Page -->
 <div id="outreach" class="page">
     <div class="container">
+        <h2>Service & Outreach</h2>
         
-        <!-- Service & Outreach Introduction -->
-        <h3 class="home-section-title" style="margin-top: 20px;">Service & Outreach</h3>
-        <p style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem; margin-bottom: 30px;">
-            I enjoy contributing to the mathematical community through graduate student leadership, professional service, mentoring, and initiatives that support student success.
-        </p>
-
         <!-- Graduate Student Leadership -->
         <h3 class="home-section-title">Graduate Student Leadership</h3>
         
@@ -933,26 +855,6 @@
                 <li style="margin-bottom: 6px;">Organized a graduate student writing group to foster accountability and peer support for research writing.</li>
                 <li>Organized professional development workshops on topics related to graduate school, research, teaching, and career development.</li>
             </ul>
-        </div>
-
-        <!-- Student Outreach & Mentoring -->
-        <h3 class="home-section-title">Student Outreach & Mentoring</h3>
-        
-        <div class="project-card">
-            <h4>Graduate School Q&A Panelist</h4>
-            <div class="project-authors">BYU Mathematics</div>
-            <div class="project-status">2025, 2026</div>
-            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
-                Participated in panel discussions for prospective mathematics graduate students, sharing experiences and answering questions about graduate school, research, teaching, and student life.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h4>Mathematics Support Sessions</h4>
-            <div class="project-authors">University of the Sunshine Coast</div>
-            <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
-                Led supplementary support sessions for underprepared students in first-year mathematics, helping strengthen foundational skills and improve confidence in university mathematics.
-            </p>
         </div>
 
         <!-- Professional Service -->
@@ -969,6 +871,14 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<!-- Modal Popup for PDFs and Images -->
+<div id="pdfModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <iframe id="modalIframe" class="modal-iframe" src=""></iframe>
     </div>
 </div>
 
@@ -1064,5 +974,5 @@
     }
 </script>
 
-    <body>
-        <html>
+</body>
+</html>
