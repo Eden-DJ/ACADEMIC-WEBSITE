@@ -117,7 +117,7 @@
     }
     .pdf-preview {
         width: 100%;
-        height: 280px; /* Compact height for collage grid */
+        height: 280px;
         border: 1px solid #ddd;
         border-radius: 6px;
     }
@@ -223,6 +223,14 @@
         background-color: #ccc; border-radius: 50%; display: inline-block;
     }
     .dot.active, .dot:hover { background-color: var(--byu-navy); }
+
+    /* Courses Taught Two-Column Grid */
+    .course-columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
     </style>
 </head>
 <body>
@@ -253,35 +261,25 @@
     <div class="container">
         <h2>Teaching Portfolio</h2>
         
-        <!-- Experience List -->
-        <div style="text-align: left; margin-bottom: 30px;">
-            <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">Brigham Young University</h3>
-            <p><strong>Instructor of Record</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>MATH 213</strong>: Elementary Linear Algebra</li>
-                <li><strong>MATH 112</strong>: Calculus I</li>
-                <li><strong>MATH 109</strong>: Precalculus Mathematics</li>
-                <li><strong>MATH 116</strong>: Essentials of Calculus</li>
-            </ul>
+        <!-- Teaching Statement -->
+        <div style="font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 40px;">
+            <p>
+                My goal as an instructor is to help students develop a deep conceptual understanding of mathematics while becoming confident, independent problem solvers. I strive to create a classroom where students actively engage with ideas, explain their reasoning, and recognize connections between concepts rather than relying on memorized procedures.
+            </p>
+            <p>
+                To support this, I design guided lecture notes, visual problem-solving roadmaps, and collaborative review activities that help students organize their thinking and develop effective mathematical decision-making skills. By combining clear explanations, purposeful visual design, and active learning, I aim to make challenging mathematics both accessible and intellectually rewarding.
+            </p>
+            <p>
+                The materials below illustrate how this philosophy is implemented across my Precalculus, Calculus I, and Linear Algebra courses.
+            </p>
         </div>
-
-        <div style="text-align: left; margin-bottom: 40px;">
-            <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">University of the Sunshine Coast</h3>
-            <p><strong>Tutorial Instructor</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>MATH 104</strong>: Introductory Calculus</li>
-                <li><strong>MATH 103</strong>: Introduction to Applied Mathematics</li>
-                <li><strong>SCI 110</strong>: Science Research Methods</li>
-            </ul>
-        </div>
-
+        
         <!-- Collaged Course Materials Grid -->
-        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px;">
+        <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px;">
             Lecture Templates & Course Materials
         </h3>
 
         <div class="pdf-grid">
-
             <!-- Math 109 -->
             <div class="pdf-card">
                 <iframe src="Math109_Section_6.1.pdf" class="pdf-preview"></iframe>
@@ -299,7 +297,6 @@
                     <a href="Math112_Section_2.7.pdf" download class="btn-link">📥 Download</a>
                 </div>
             </div>
-
 
             <!-- Math 213 Sec 5.2 -->
             <div class="pdf-card">
@@ -319,30 +316,28 @@
                 </div>
             </div>
 
-
             <!-- Math 213 Final Review -->
-<div class="pdf-card" style="grid-column: 1 / -1;">
-    <div style="margin-bottom: 15px;">
-        <h4 style="color: var(--byu-navy); margin-top: 0; font-size: 1.25rem;">Math 213: Collaborative Blackboard Final Exam Review</h4>
-        <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
-            Rather than holding a traditional instructor-led review session, I prepare students for exams through <strong>collaborative blackboard review activities</strong>. The goal is to create an environment where students actively construct their understanding, explain their reasoning, and learn from one another while I provide targeted guidance and feedback.
-    </p> 
-        </p>
-        <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
-            <strong>How it works:</strong> Each blackboard station is dedicated to a major course topic and includes key concepts, guiding questions, and representative practice problems. Students move freely between stations based on the topics they would like to strengthen, working together to develop solutions, explain ideas, and justify each step. Throughout the session, I circulate between groups, asking questions, addressing misconceptions, and facilitating mathematical discussion rather than leading the review from the front of the room.
-        </p>
-        <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
-            <strong>Why this approach:</strong> Working at the boards transforms exam review into an active learning experience. Students verbalize mathematical reasoning, identify and correct one another's misconceptions, and build confidence by explaining concepts before applying them independently on the exam. The format also allows students to focus their time on the topics they find most challenging while learning from their peers' perspectives and solution strategies.
-    </p>
-    </div>
-    
-    <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 380px;"></iframe>
-    
-    <div class="pdf-actions">
-        <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
-        <a href="Math213_Final_Exam_Review.pdf" download class="btn-link">📥 Download Review Guide</a>
-    </div>
-</div>
+            <div class="pdf-card" style="grid-column: 1 / -1;">
+                <div style="margin-bottom: 15px;">
+                    <h4 style="color: var(--byu-navy); margin-top: 0; font-size: 1.25rem;">Math 213: Collaborative Blackboard Final Exam Review</h4>
+                    <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
+                        Rather than holding a traditional instructor-led review session, I prepare students for exams through <strong>collaborative blackboard review activities</strong>. The goal is to create an environment where students actively construct their understanding, explain their reasoning, and learn from one another while I provide targeted guidance and feedback.
+                    </p>
+                    <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
+                        <strong>How it works:</strong> Each blackboard station is dedicated to a major course topic and includes key concepts, guiding questions, and representative practice problems. Students move freely between stations based on the topics they would like to strengthen, working together to develop solutions, explain ideas, and justify each step. Throughout the session, I circulate between groups, asking questions, addressing misconceptions, and facilitating mathematical discussion rather than leading the review from the front of the room.
+                    </p>
+                    <p style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                        <strong>Why this approach:</strong> Working at the boards transforms exam review into an active learning experience. Students verbalize mathematical reasoning, identify and correct one another's misconceptions, and build confidence by explaining concepts before applying them independently on the exam. The format also allows students to focus their time on the topics they find most challenging while learning from their peers' perspectives and solution strategies.
+                    </p>
+                </div>
+                
+                <iframe src="Math213_Final_Exam_Review.pdf" class="pdf-preview" style="height: 380px;"></iframe>
+                
+                <div class="pdf-actions">
+                    <span class="btn-link" onclick="openModal('Math213_Final_Exam_Review.pdf')">🔍 Expand / Fullscreen</span>
+                    <a href="Math213_Final_Exam_Review.pdf" download class="btn-link">📥 Download Review Guide</a>
+                </div>
+            </div>
 
             <!-- LaTeX Template Card -->
             <div class="pdf-card">
@@ -360,6 +355,10 @@
         <h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">
             Visual Roadmaps & Guides
         </h3>
+        
+        <p style="color: #444; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">
+            <strong>Roadmaps:</strong> One challenge students often face is deciding what to do next when solving a problem. To support independent problem solving, I design visual decision roadmaps that organize common solution strategies into clear, step-by-step processes. Rather than memorizing isolated procedures, students learn to recognize the structure of a problem and choose an appropriate solution path.
+        </p>
 
         <div class="carousel-container" id="roadmapCarousel">
             <div class="carousel-slide active">
@@ -401,7 +400,7 @@
             Classroom Community
         </h3>
         
-        <div class="pdf-grid">
+        <div class="pdf-grid" style="margin-bottom: 50px;">
             <div class="pdf-card">
                 <div>
                     <h4>Five Minutes of Australia</h4>
@@ -415,6 +414,48 @@
             </div>
         </div>
 
+       <!-- Experience List (2 Columns Layout) -->
+<h3 style="color: var(--byu-navy); border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 50px;">
+    Teaching & Pedagogical Experience
+</h3>
+<div class="course-columns">
+    <!-- BYU Column -->
+    <div>
+        <h4 style="color: var(--byu-navy); margin-bottom: 5px;">Brigham Young University</h4>
+        
+        <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Instructor of Record</strong></p>
+        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+            <li><strong>MATH 213</strong>: Elementary Linear Algebra</li>
+            <li><strong>MATH 112</strong>: Calculus I</li>
+            <li><strong>MATH 109</strong>: Precalculus Mathematics</li>
+            <li><strong>MATH 116</strong>: Essentials of Calculus</li>
+        </ul>
+
+        <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Teaching Assistant & Recitation Leader</strong></p>
+        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+            <li><strong>MATH 113</strong>: Calculus II</li>
+            <li><strong>MATH 341</strong>: Theory of Analysis I</li>
+        </ul>
+
+        <p style="margin-top: 15px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Grader</strong></p>
+        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+            <li><strong>MATH 570</strong>: Matrix Analysis</li>
+            <li><strong>MATH 510</strong>: Numerical Linear Algebra</li>
+            <li><strong>MATH 314</strong>: Calculus of Several Variables</li>
+        </ul>
+    </div>
+
+    <!-- UniSC Column -->
+    <div>
+        <h4 style="color: var(--byu-navy); margin-bottom: 5px;">University of the Sunshine Coast</h4>
+        <p style="margin-top: 10px; margin-bottom: 5px; color: #555; font-size: 0.95rem;"><strong>Tutorial Instructor</strong></p>
+        <ul style="line-height: 1.8; color: #444; margin-top: 0; padding-left: 20px;">
+            <li><strong>MATH 104</strong>: Introductory Calculus</li>
+            <li><strong>MATH 103</strong>: Introduction to Applied Mathematics</li>
+            <li><strong>SCI 110</strong>: Science Research Methods</li>
+        </ul>
+    </div>
+</div>
     </div>
 </div>
 
