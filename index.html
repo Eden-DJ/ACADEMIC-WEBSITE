@@ -894,7 +894,6 @@
 
         </div>
 
-
         <!-- 4. Research Interests -->
         <h3 class="home-section-title">Research Interests</h3>
         <div class="tag-container" style="text-align: left;">
@@ -915,17 +914,17 @@
             <div><span class="project-status">In preparation</span></div>
             <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
                 We investigate lower bounds for group-invariant CR maps between spheres and hyperquadrics. By reformulating the problem in terms of invariant polynomials, their signatures, and associated positive matrices, we develop a new approach to proving sharp lower bounds relating the degree of the map to the target dimension.
+            </p>
         </div>
 
         <div class="project-card">
             <h4>Degree Three Ball Maps and Normal Forms</h4>
-            <div class="project-authors">Eden Danielsen-Jensen, Dusty Grundmeier,  Abdulluh Al Helal, Valentin Kunz, Jiří Lebl, Ming Xio, Weixia Zhu </div>
+            <div class="project-authors">Eden Danielsen-Jensen, Dusty Grundmeier, Abdulluh Al Helal, Valentin Kunz, Jiří Lebl, Ming Xiao, Weixia Zhu</div>
             <div><span class="project-status">In preparation (Working Title)</span></div>
             <p style="color: #444; line-height: 1.6; font-size: 0.98rem; margin: 0;">
                 We study degree-three rational sphere maps between complex unit balls. Using Gram matrix techniques, we characterize exactly which normalized quadratic denominators admit sphere maps, develop canonical Gram normal forms, and describe the corresponding moduli space.
+            </p>
         </div>
-
-
 
         <!-- 6. Presentations -->
         <h3 class="home-section-title">Presentations</h3>
@@ -949,6 +948,7 @@
                     <li>Australian Mathematical Society Conference, 2022</li>
                 </ul>
             </div>
+        </div>
 
         <!-- Research Activities & Workshops -->
         <h3 class="home-section-title">Research Activities & Workshops</h3>
@@ -972,8 +972,8 @@
     </div>
 </div>
 
-<!-- Service & Outreach Page -->
-<div id="outreach" class="page">
+<!-- Service & Outreach Page (Fixed ID: changed from 'outreach' to 'service') -->
+<div id="service" class="page">
     <div class="container">
 
         <!-- Service & Outreach Introduction -->
@@ -981,6 +981,7 @@
         <p style="text-align: left; line-height: 1.7; color: #444; font-size: 1.05rem; margin-bottom: 30px;">
             I enjoy contributing to the mathematical community through graduate student leadership, professional service, mentoring, and initiatives that support student success.
         </p>
+
         <!-- Graduate Student Leadership -->
         <h3 class="home-section-title">Graduate Student Leadership</h3>
         
@@ -1041,9 +1042,24 @@
 
 <script>
     function showPage(pageId) {
+        // Hide all pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        window.scrollTo(0,0);
+        
+        // Show target page
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
+
+        // Optional: Keep navbar button state synchronized
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('onclick')?.includes(`'${pageId}'`)) {
+                link.classList.add('active');
+            }
+        });
+
+        window.scrollTo(0, 0);
     }
 
     // Modal Popup Function supporting both PDFs and Images
@@ -1051,7 +1067,6 @@
         const iframe = document.getElementById('modalIframe');
         let imgContainer = document.getElementById('modalImg');
 
-        // Create modal image element dynamically if it doesn't exist
         if (!imgContainer) {
             imgContainer = document.createElement('img');
             imgContainer.id = 'modalImg';
@@ -1089,6 +1104,8 @@
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
         
+        if (slides.length === 0) return;
+
         if (index >= slides.length) { slideIndex = 0; }
         if (index < 0) { slideIndex = slides.length - 1; }
         
