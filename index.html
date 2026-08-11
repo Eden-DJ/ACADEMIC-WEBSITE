@@ -185,6 +185,37 @@
         margin-top: 15px;
     }
 
+        /* Container layout for tag chips */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Style for individual research tags */
+.tag {
+    display: inline-block;
+    background-color: #f0f4f8;
+    color: var(--byu-navy, #002e5d);
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Interactive hover effect */
+.tag:hover {
+    background-color: var(--byu-navy, #002e5d);
+    color: #ffffff;
+    border-color: var(--byu-navy, #002e5d);
+    transform: translateY(-1px);
+}
+
     /* Side-by-side Figure Cards Grid for Research Page */
     .figure-grid {
         display: grid;
