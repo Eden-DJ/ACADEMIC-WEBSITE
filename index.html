@@ -75,9 +75,9 @@
         color: var(--outback-gold);
     }
     nav button.active {
-    color: var(--outback-gold);
-    border-bottom: 3px solid var(--outback-gold);
-}
+        color: var(--outback-gold);
+        border-bottom: 3px solid var(--outback-gold);
+    }
 
     /* Home Page Hero Section */
     .hero-section {
@@ -189,7 +189,7 @@
         margin-top: 15px;
     }
 
-        /* Container layout for tag chips */
+    /* Container layout for tag chips */
 .tag-container {
     display: flex;
     flex-wrap: wrap;
@@ -490,7 +490,7 @@
 </section>
 
 <nav>
-    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('home')" class="active">Home</button>
     <button onclick="showPage('teaching')">Teaching</button>
     <button onclick="showPage('research')">Research</button>
     <button onclick="showPage('service')">Service & Outreach</button>
@@ -976,7 +976,7 @@
     </div>
 </div>
 
-<!-- Service & Outreach Page (Fixed ID: changed from 'outreach' to 'service') -->
+<!-- Service & Outreach Page -->
 <div id="service" class="page">
     <div class="container">
 
@@ -1046,32 +1046,23 @@
 
 <script>
     function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-    document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+        // Hide all pages and remove active styling from nav buttons
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
 
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    }
+        // Show the target page
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
 
-    // Highlight the button that triggered the function
-    const activeBtn = Array.from(document.querySelectorAll('nav button')).find(
-        btn => btn.getAttribute('onclick')?.includes(`'${pageId}'`)
-    );
-    if (activeBtn) {
-        activeBtn.classList.add('active');
-    }
-
-    window.scrollTo(0, 0);
-}
-
-        // Optional: Keep navbar button state synchronized
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('onclick')?.includes(`'${pageId}'`)) {
-                link.classList.add('active');
-            }
-        });
+        // Highlight the clicked navigation button
+        const activeBtn = Array.from(document.querySelectorAll('nav button')).find(
+            btn => btn.getAttribute('onclick')?.includes(`'${pageId}'`)
+        );
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
 
         window.scrollTo(0, 0);
     }
