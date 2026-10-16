@@ -520,6 +520,34 @@
         margin: 0 auto 20px;
     }
 }
+
+        .presentations-content {
+    display: flow-root;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.montana-conference-photo {
+    float: left;
+    width: 42%;
+    max-width: 440px;
+    margin: 0 28px 20px 0;
+}
+
+.presentation-entry {
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid var(--outback-gold);
+    display: flow-root;
+}
+
+@media (max-width: 700px) {
+    .montana-conference-photo {
+        float: none;
+        width: 100%;
+        margin: 0 auto 25px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1808,26 +1836,17 @@
     </p>
 </div>
 
-        <!-- 6. Presentations -->
-        <h3 class="home-section-title">Presentations</h3>
-        
-        <div style="text-align: left; margin-top: 15px;">
-            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Several Complex Variables</h4>
+       <!-- 6. Presentations -->
+<h3 class="home-section-title">Presentations</h3>
 
-           <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
-    <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">
-        Existence and Nonexistence of Group-Invariant Maps from Spheres to Hyperquadrics
-    </p>
-    <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
-        <li>Math of Montana Conference, Bozeman, MT, October 2026</li>
-    </ul>
+<div class="presentations-content">
 
-    <div style="max-width: 540px; margin: 15px auto 0;">
+    <figure class="montana-conference-photo">
         <div class="figure-img-container"
              style="min-height: auto; margin-bottom: 8px; cursor: pointer;"
-             onclick="openModal('Montana_Conference.jpg', true)">
+             onclick="openModal('MoM_Photo.jpg', true)">
             <img src="MoM_Photo.jpg"
-                 alt="Math of Montana Conference, October 2026"
+                 alt="Participants at the Math of Montana Conference, October 2026"
                  loading="lazy"
                  style="display: block; width: 100%; height: auto;">
         </div>
@@ -1840,31 +1859,50 @@
             </span>
         </div>
 
-        <p class="figure-caption"
-           style="text-align: center; color: #555; font-size: 0.9rem; margin-top: 6px;">
+        <figcaption style="text-align: center; color: #555; font-size: 0.9rem; line-height: 1.5; margin-top: 6px;">
             Math of Montana Conference, Bozeman, October 2026.
+        </figcaption>
+    </figure>
+
+    <h4 style="color: var(--byu-navy); margin-top: 0; margin-bottom: 8px;">
+        Several Complex Variables
+    </h4>
+
+    <div class="presentation-entry">
+        <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">
+            Existence and Nonexistence of Group-Invariant Maps from Spheres to Hyperquadrics
         </p>
+        <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+            <li>Math of Montana Conference, Bozeman, MT, October 2026</li>
+        </ul>
     </div>
+
+    <div class="presentation-entry">
+        <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">
+            Signatures for Group-Invariant Monomial Maps from Spheres to Hyperquadrics
+        </p>
+        <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+            <li>MAA Intermountain Section Meeting, Provo, UT, March 2026</li>
+            <li>BYU Student Research Conference, Provo, UT, February 2026</li>
+            <li>Joint Mathematics Meetings (JMM), Washington, DC, January 2026</li>
+        </ul>
+    </div>
+
+    <h4 style="color: var(--byu-navy); margin-bottom: 8px;">
+        Algebra
+    </h4>
+
+    <div class="presentation-entry">
+        <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">
+            A Revised Introduction for the Base Semisimple Class
+        </p>
+        <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
+            <li>Australian Algebra Conference, Sunshine Coast, QLD, December 2022</li>
+            <li>Australian Mathematical Society Conference, Sydney, NSW, December 2022</li>
+        </ul>
+    </div>
+
 </div>
-            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
-                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">Signatures for Group-Invariant Monomial Maps from Spheres to Hyperquadrics</p>
-                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
-                    <li>MAA Intermountain Section Meeting, Provo, UT, March 2026</li>
-                    <li>Joint Mathematics Meetings (JMM), Washington, DC, January 2026</li>
-                    <li>BYU Student Research Conference, Provo UT, February 2026</li>
-                </ul>
-            </div>
-
-            <h4 style="color: var(--byu-navy); margin-bottom: 8px;">Algebra</h4>
-            <div style="padding-left: 15px; border-left: 3px solid var(--outback-gold); margin-bottom: 25px;">
-                <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">A Revised Introduction for the Base Semisimple Class</p>
-                <ul style="margin: 0; color: #555; font-size: 0.95rem; line-height: 1.6; padding-left: 20px;">
-                    <li>Australian Algebra Conference, Sunshine Coast, QLD, December 2022</li>
-                    <li>Australian Mathematical Society Conference, Sydney, NSW, December 2022</li>
-                </ul>
-            </div>
-        </div>
-
         <!-- Research Activities & Workshops -->
         <h3 class="home-section-title">Research Activities & Workshops</h3>
         <div class="project-card" style="border-left: 5px solid var(--byu-navy);">
